@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Tasks & Assignments | Digital Marketing</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0D6EFD;
+            --accent: #F8C146;
+            --text: #1F1F1F;
+            --bg-alt: #F5F7FA;
+            --completed: #198754;
+            --in-progress: #FFC107;
+            --not-started: #6C757D;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            background-color: #FFFFFF;
+        }
+        
+        .page-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2.5rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0 0 1rem 1rem;
+        }
+        
+        .module-card {
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .module-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .module-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.25rem;
+            border-radius: 1rem 1rem 0 0;
+        }
+        
+        .module-body {
+            padding: 1.5rem;
+        }
+        
+        .module-card:nth-child(even) .module-body {
+            background-color: var(--bg-alt);
+        }
+        
+        .task-item {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .task-item:last-child {
+            border-bottom: none;
+        }
+        
+        .task-icon {
+            color: var(--accent);
+            font-size: 1.25rem;
+            margin-right: 0.5rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-accent {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            color: var(--text);
+        }
+        
+        .btn-accent:hover {
+            background-color: #e9b43d;
+            border-color: #e9b43d;
+            color: var(--text);
+        }
+        
+        .status-badge {
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            display: inline-block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .status-not-started {
+            background-color: var(--not-started);
+            color: white;
+        }
+        
+        .status-in-progress {
+            background-color: var(--in-progress);
+            color: var(--text);
+        }
+        
+        .status-completed {
+            background-color: var(--completed);
+            color: white;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .progress-container {
+            margin-top: 1rem;
+        }
+        
+        .progress {
+            height: 0.75rem;
+            border-radius: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 1.5rem 0;
+            }
+            
+            .module-header {
+                padding: 1rem;
+            }
+            
+            .module-body {
+                padding: 1rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .action-buttons .btn {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="display-5 fw-bold">Course Tasks & Assignments</h1>
+            <p class="fs-5 mt-3">Complete the following tasks as you progress through each module. Download materials, submit work, and track your progress.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container pb-5">
+        <!-- Module 1 -->
+        <div class="module-card">
+            <div class="module-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2 class="h4 mb-0">Module 1: Content Creation & Storytelling</h2>
+                    <span class="status-badge status-in-progress">In Progress</span>
+                </div>
+            </div>
+            <div class="module-body">
+                <p>Master the art of creating compelling content that resonates with your target audience through effective storytelling techniques.</p>
+                
+                <div class="progress-container">
+                    <div class="d-flex justify-content-between mb-1">
+                        <small>Module Progress</small>
+                        <small>33%</small>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 33%" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                
+                <div class="task-list mt-4">
+                    <div class="task-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="task1-1">
+                            <label class="form-check-label" for="task1-1">
+                                <i class="bi bi-pencil-square task-icon"></i>
+                                Create 2 blog post drafts using storytelling framework
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="task-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="task1-2" checked>
+                            <label class="form-check-label" for="task1-2">
+                                <i class="bi bi-envelope task-icon"></i>
+                                Write 3 email subject lines and body copy variations
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="task-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="task1-3">
+                            <label class="form-check-label" for="task1-3">
+                                <i class="bi bi-calendar-week task-icon"></i>
+                                Submit a content calendar
+                            </label>
+                        </div>
+                        <div class="action-buttons mt-3">
+                            <button class="btn btn-primary btn-sm">
+                                <i class="bi bi-download me-1"></i> Download Template
+                            </button>
+                            <button class="btn btn-accent btn-sm">
+                                <i class="bi bi-upload me-1"></i> Submit Calendar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Module 2 -->
+        <div class="module-card">
+            <div class="module-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2 class="h4 mb-0">Module 2: Social Media Marketing</h2>
+                    <span class="status-badge status-not-started">Not Started</span>
+                </div>
+            </div>
+            <div class="module-body">
+                <p>Learn how to effectively leverage social media platforms to grow your audience and drive engagement.</p>
+                
+                <div class="progress-container">
+                    <div class="d-flex justify-content-between mb-1">
+                        <small>Module Progress</small>
+                        <small>0%</small>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                
+                <div class="task-list mt-4">
+                    <div class="task-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="task2-1">
+                            <label class="form-check-label" for="task2-1">
+                                <i class="bi bi-instagram task-icon"></i>
+                                Build a 1-week content plan for Instagram
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="task-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="task2-2">
+                            <label class="form-check-label" for="task2-2">
+                                <i class="bi bi-facebook task-icon"></i>
+                                Set up a dummy ad campaign in Facebook Ads Manager
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="task-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="task2-3">
+                            <label class="form-check-label" for="task2-3">
+                                <i class="bi bi-linkedin task-icon"></i>
+                                Write copy for 2 posts on LinkedIn and TikTok
+                            </label>
+                        </div>
+                        <div class="action-buttons mt-3">
+                            <button class="btn btn-primary btn-sm">
+                                <i class="bi bi-download me-1"></i> Download Guidelines
+                            </button>
+                            <button class="btn btn-accent btn-sm">
+                                <i class="bi bi-upload me-1"></i> Submit Copy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Module 3 -->
+        <div class="module-card">
+            <div class="module-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2 class="h4 mb-0">Module 3: Paid Advertising (PPC)</h2>
+                    <span class="status-badge status-not-started">Not Started</span>
+                </div>
+            </div>
+            <div class="module-body">
+                <p>Master the fundamentals of pay-per-click advertising to drive targeted traffic and maximize ROI.</p>
+                
+                <div class="progress-container">
+                    <div class="d-flex justify-content-between mb-1">
+                        <small>Module Progress</small>
+                        <small>0%</small>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                
+                <div class="task-list mt-4">
+                    <div class="task-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="task3-1">
+                            <label class="form-check-label" for="task3-1">
+                                <i class="bi bi-google task-icon"></i>
+                                Create a sample Google Ads campaign (mock account)
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="task-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="task3-2">
+                            <label class="form-check-label" for="task3-2">
+                                <i class="bi bi-key task-icon"></i>
+                                Choose 5 keywords and write 2 ad variations
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="task-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="task3-3">
+                            <label class="form-check-label" for="task3-3">
+                                <i class="bi bi-file-earmark-text task-icon"></i>
+                                Download the PPC setup worksheet
+                            </label>
+                        </div>
+                        <div class="action-buttons mt-3">
+                            <button class="btn btn-primary btn-sm">
+                                <i class="bi bi-download me-1"></i> Download Worksheet
+                            </button>
+                            <button class="btn btn-accent btn-sm">
+                                <i class="bi bi-upload me-1"></i> Submit Campaign
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Module 4 -->
+        <div class="module-card">
+            <div class="module-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2 class="h4 mb-0">Module 4: Data & Analytics</h2>
+                    <span class="status-badge status-not-started">Not Started</span>
+                </div>
+            </div>
+            <div class="module-body">
+                <p>Learn how to collect, analyze, and interpret data to make informed marketing decisions.</p>
+                
+                <div class="progress-container">
+                    <div class="d-flex justify-content-between mb-1">
+                        <small>Module Progress</small>
+                        <small>0%</small>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                
+                <div class="task-list mt-4">
+                    <div class="task-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="task4-1">
+                            <label class="form-check-label" for="task4-1">
+                                <i class="bi bi-graph-up task-icon"></i>
+                                Set up a Google Analytics 4 demo property
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="task-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="task4-2">
+                            <label class="form-check-label" for="task4-2">
+                                <i class="bi bi-file-bar-graph task-icon"></i>
+                                Interpret a provided traffic report
+                            </label>
+                        </div>
+                        <div class="action-buttons mt-3">
+                            <button class="btn btn-primary btn-sm">
+                                <i class="bi bi-download me-1"></i> Download Report
+                            </button>
+                            <button class="btn btn-accent btn-sm">
+                                <i class="bi bi-upload me-1"></i> Submit Analysis
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="task-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="task4-3">
+                            <label class="form-check-label" for="task4-3">
+                                <i class="bi bi-layout-split task-icon"></i>
+                                Complete 1 A/B testing planning worksheet
+                            </label>
+                        </div>
+                        <div class="action-buttons mt-3">
+                            <button class="btn btn-primary btn-sm">
+                                <i class="bi bi-download me-1"></i> Download Worksheet
+                            </button>
+                            <button class="btn btn-accent btn-sm">
+                                <i class="bi bi-upload me-1"></i> Submit Worksheet
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Module 5 -->
+        <div class="module-card">
+            <div class="module-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2 class="h4 mb-0">Module 5: Advanced Strategies</h2>
+                    <span class="status-badge status-not-started">Not Started</span>
+                </div>
+            </div>
+            <div class="module-body">
+                <p>Explore advanced digital marketing strategies including affiliate marketing and technical SEO.</p>
+                
+                <div class="progress-container">
+                    <div class="d-flex justify-content-between mb-1">
+                        <small>Module Progress</small>
+                        <small>0%</small>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                
+                <div class="task-list mt-4">
+                    <div class="task-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="task5-1">
+                            <label class="form-check-label" for="task5-1">
+                                <i class="bi bi-link-45deg task-icon"></i>
+                                Sign up for an affiliate network (mock or real)
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="task-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="task5-2">
+                            <label class="form-check-label" for="task5-2">
+                                <i class="bi bi-star task-icon"></i>
+                                Create a product review draft with affiliate links
+                            </label>
+                        </div>
+                        <div class="action-buttons mt-3">
+                            <button class="btn btn-primary btn-sm">
+                                <i class="bi bi-download me-1"></i> Download Guidelines
+                            </button>
+                            <button class="btn btn-accent btn-sm">
+                                <i class="bi bi-upload me-1"></i> Submit Review
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="task-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="task5-3">
+                            <label class="form-check-label" for="task5-3">
+                                <i class="bi bi-search task-icon"></i>
+                                Submit a basic technical SEO audit for a sample site
+                            </label>
+                        </div>
+                        <div class="action-buttons mt-3">
+                            <button class="btn btn-primary btn-sm">
+                                <i class="bi bi-download me-1"></i> Download Template
+                            </button>
+                            <button class="btn btn-accent btn-sm">
+                                <i class="bi bi-upload me-1"></i> Submit Audit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Module 6 -->
+        <div class="module-card">
+            <div class="module-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2 class="h4 mb-0">Module 6: Strategy & Execution</h2>
+                    <span class="status-badge status-not-started">Not Started</span>
+                </div>
+            </div>
+            <div class="module-body">
+                <p>Bring together everything you've learned to create and present a comprehensive digital marketing strategy.</p>
+                
+                <div class="progress-container">
+                    <div class="d-flex justify-content-between mb-1">
+                        <small>Module Progress</small>
+                        <small>0%</small>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                
+                <div class="task-list mt-4">
+                    <div class="task-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="task6-1">
+                            <label class="form-check-label" for="task6-1">
+                                <i class="bi bi-file-earmark-pdf task-icon"></i>
+                                Create a final digital marketing plan (PDF or PPT)
+                            </label>
+                        </div>
+                        <div class="action-buttons mt-3">
+                            <button class="btn btn-primary btn-sm">
+                                <i class="bi bi-download me-1"></i> Download Template
+                            </button>
+                            <button class="btn btn-accent btn-sm">
+                                <i class="bi bi-upload me-1"></i> Submit Plan
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="task-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="task6-2">
+                            <label class="form-check-label" for="task6-2">
+                                <i class="bi bi-briefcase task-icon"></i>
+                                Submit your full capstone project
+                            </label>
+                        </div>
+                        <div class="action-buttons mt-3">
+                            <button class="btn btn-primary btn-sm">
+                                <i class="bi bi-download me-1"></i> Download Guidelines
+                            </button>
+                            <button class="btn btn-accent btn-sm">
+                                <i class="bi bi-upload me-1"></i> Submit Project
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="task-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="task6-3">
+                            <label class="form-check-label" for="task6-3">
+                                <i class="bi bi-easel task-icon"></i>
+                                Upload your presentation slides or link
+                            </label>
+                        </div>
+                        <div class="action-buttons mt-3">
+                            <button class="btn btn-accent btn-sm">
+                                <i class="bi bi-upload me-1"></i> Submit Presentation
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Overall Progress -->
+        <div class="card mt-4 mb-5">
+            <div class="card-body">
+                <h3 class="h5 mb-3">Overall Course Progress</h3>
+                <div class="progress-container">
+                    <div class="d-flex justify-content-between mb-1">
+                        <small>Course Completion</small>
+                        <small>5%</small>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                
+                <div class="d-flex justify-content-between mt-4">
+                    <div>
+                        <p class="mb-0"><strong>Tasks Completed:</strong> 1/18</p>
+                        <p class="mb-0"><strong>Modules Completed:</strong> 0/6</p>
+                    </div>
+                    <button class="btn btn-primary">
+                        <i class="bi bi-download me-1"></i> Download Course Certificate
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">© 2025 Digital Marketing Course. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Simple script to update task progress when checkboxes are clicked
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.form-check-input');
+            
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    updateModuleProgress(this);
+                });
+            });
+            
+            function updateModuleProgress(checkbox) {
+                // Find the parent module card
+                const moduleCard = checkbox.closest('.module-card');
+                const moduleCheckboxes = moduleCard.querySelectorAll('.form-check-input');
+                const progressBar = moduleCard.querySelector('.progress-bar');
+                const progressText = moduleCard.querySelector('.progress-container small:last-child');
+                const statusBadge = moduleCard.querySelector('.status-badge');
+                
+                // Calculate progress
+                let checkedCount = 0;
+                moduleCheckboxes.forEach(cb => {
+                    if (cb.checked) checkedCount++;
+                });
+                
+                const progressPercentage = Math.round((checkedCount / moduleCheckboxes.length) * 100);
+                
+                // Update progress bar and text
+                progressBar.style.width = progressPercentage + '%';
+                progressBar.setAttribute('aria-valuenow', progressPercentage);
+                progressText.textContent = progressPercentage + '%';
+                
+                // Update status badge
+                if (progressPercentage === 0) {
+                    statusBadge.className = 'status-badge status-not-started';
+                    statusBadge.textContent = 'Not Started';
+                } else if (progressPercentage === 100) {
+                    statusBadge.className = 'status-badge status-completed';
+                    statusBadge.textContent = 'Completed';
+                } else {
+                    statusBadge.className = 'status-badge status-in-progress';
+                    statusBadge.textContent = 'In Progress';
+                }
+                
+                // Update overall course progress
+                updateOverallProgress();
+            }
+            
+            function updateOverallProgress() {
+                const allCheckboxes = document.querySelectorAll('.form-check-input');
+                const overallProgressBar = document.querySelector('.card .progress-bar');
+                const overallProgressText = document.querySelector('.card .progress-container small:last-child');
+                const tasksCompletedText = document.querySelector('p strong:contains("Tasks Completed")').parentNode;
+                
+                let totalChecked = 0;
+                allCheckboxes.forEach(cb => {
+                    if (cb.checked) totalChecked++;
+                });
+                
+                const overallPercentage = Math.round((totalChecked / allCheckboxes.length) * 100);
+                
+                overallProgressBar.style.width = overallPercentage + '%';
+                overallProgressBar.setAttribute('aria-valuenow', overallPercentage);
+                overallProgressText.textContent = overallPercentage + '%';
+                
+                // Update tasks completed text
+                document.querySelector('p:contains("Tasks Completed")').innerHTML = `<strong>Tasks Completed:</strong> ${totalChecked}/${allCheckboxes.length}`;
+                
+                // Update modules completed
+                const moduleCards = document.querySelectorAll('.module-card');
+                let completedModules = 0;
+                
+                moduleCards.forEach(card => {
+                    const badge = card.querySelector('.status-badge');
+                    if (badge.textContent.trim() === 'Completed') {
+                        completedModules++;
+                    }
+                });
+                
+                document.querySelector('p:contains("Modules Completed")').innerHTML = `<strong>Modules Completed:</strong> ${completedModules}/${moduleCards.length}`;
+            }
+            
+            // Initialize progress on page load
+            updateOverallProgress();
+        });
+    </script>
+</body>
+</html>

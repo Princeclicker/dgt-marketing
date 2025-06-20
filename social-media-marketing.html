@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Marketing Course - Digital Marketing Mastery</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #0D6EFD;
+            --accent-color: #F8C146;
+            --bg-light: #F5F7FA;
+            --text-dark: #2C3E50;
+            --text-muted: #6C757D;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #FFFFFF;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0B5ED7 100%);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section-alt {
+            background-color: var(--bg-light);
+        }
+        
+        .section-padding {
+            padding: 80px 0;
+        }
+        
+        .btn-primary-custom {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 15px 40px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary-custom:hover {
+            background-color: #0B5ED7;
+            border-color: #0B5ED7;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(13, 110, 253, 0.3);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent-color), #E6A502);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 24px;
+        }
+        
+        .platform-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .platform-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .platform-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 36px;
+            color: white;
+        }
+        
+        .facebook-bg { background: linear-gradient(135deg, #1877F2, #0C63D4); }
+        .instagram-bg { background: linear-gradient(135deg, #E4405F, #C13584, #833AB4); }
+        .tiktok-bg { background: linear-gradient(135deg, #000000, #FF0050); }
+        .twitter-bg { background: linear-gradient(135deg, #1DA1F2, #0C85D0); }
+        .linkedin-bg { background: linear-gradient(135deg, #0077B5, #005885); }
+        
+        .learning-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #E9ECEF;
+        }
+        
+        .learning-item:last-child {
+            border-bottom: none;
+        }
+        
+        .learning-item i {
+            color: var(--accent-color);
+            margin-right: 15px;
+            font-size: 18px;
+        }
+        
+        .material-item {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .material-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .material-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: white;
+            font-size: 24px;
+        }
+        
+        .outcome-badge {
+            background: var(--accent-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 500;
+            display: inline-block;
+            margin: 5px;
+        }
+        
+        .stats-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .stats-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 60px 0;
+            }
+            
+            .section-padding {
+                padding: 50px 0;
+            }
+            
+            .stats-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center hero-content">
+                    <h1 class="display-4 fw-bold mb-4">Social Media Marketing</h1>
+                    <p class="lead mb-5">Learn how to grow brands using platform strategies and paid social ads. Master the art of engaging audiences and driving conversions across all major social platforms.</p>
+                    <a href="#course-overview" class="btn btn-primary-custom btn-lg">
+                        <i class="fas fa-play-circle me-2"></i>Start Learning
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Overview -->
+    <section id="course-overview" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="h1 fw-bold mb-4">Course Overview</h2>
+                    <p class="lead text-muted">This comprehensive module teaches you how to leverage social media platforms for business growth through strategic content creation and targeted advertising. You'll master platform-specific strategies, learn to create engaging content that converts, and discover how to optimize paid social campaigns for maximum ROI. From organic growth tactics to advanced ad targeting, this course covers everything you need to become a social media marketing expert.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You'll Learn -->
+    <section class="section-padding section-alt">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="h1 fw-bold mb-5">What You'll Learn</h2>
+                    <div class="learning-item">
+                        <i class="fas fa-check-circle"></i>
+                        <strong>Platform Differences:</strong> Understand unique features and audiences of Facebook, Instagram, TikTok, Twitter, and LinkedIn
+                    </div>
+                    <div class="learning-item">
+                        <i class="fas fa-check-circle"></i>
+                        <strong>Content Strategy:</strong> Create tailored content that resonates with each platform's specific audience and algorithm
+                    </div>
+                    <div class="learning-item">
+                        <i class="fas fa-check-circle"></i>
+                        <strong>Visual Storytelling:</strong> Design engaging copy and visuals that drive engagement and brand awareness
+                    </div>
+                    <div class="learning-item">
+                        <i class="fas fa-check-circle"></i>
+                        <strong>Content Planning:</strong> Master scheduling tools like Hootsuite, Buffer, and native platform schedulers
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="learning-item">
+                        <i class="fas fa-check-circle"></i>
+                        <strong>Facebook & Instagram Ads:</strong> Launch, manage, and optimize campaigns using Meta Business Manager
+                    </div>
+                    <div class="learning-item">
+                        <i class="fas fa-check-circle"></i>
+                        <strong>Ad Metrics Mastery:</strong> Analyze CTR, CPC, CPM, ROAS, and other key performance indicators
+                    </div>
+                    <div class="learning-item">
+                        <i class="fas fa-check-circle"></i>
+                        <strong>A/B Testing:</strong> Systematically test ad creative, copy, and targeting for optimal performance
+                    </div>
+                    <div class="learning-item">
+                        <i class="fas fa-check-circle"></i>
+                        <strong>Retargeting Strategies:</strong> Implement pixel tracking and create custom audiences for higher conversions
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Focus -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="h1 fw-bold">Platform Focus</h2>
+                    <p class="lead text-muted">Master the unique strategies for each major social media platform</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="platform-card">
+                        <div class="platform-icon facebook-bg">
+                            <i class="fab fa-facebook-f"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Facebook</h4>
+                        <p class="text-muted">Build communities, leverage Facebook Groups, and master Meta Business Manager for comprehensive ad campaigns targeting diverse demographics.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="platform-card">
+                        <div class="platform-icon instagram-bg">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Instagram</h4>
+                        <p class="text-muted">Create stunning Reels, Stories, and posts. Learn influencer partnership strategies and Instagram Shopping integration for e-commerce success.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="platform-card">
+                        <div class="platform-icon tiktok-bg">
+                            <i class="fab fa-tiktok"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">TikTok</h4>
+                        <p class="text-muted">Master viral content creation, trend-based growth strategies, and TikTok Ads Manager for reaching Gen Z and millennial audiences effectively.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="platform-card">
+                        <div class="platform-icon twitter-bg">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Twitter/X</h4>
+                        <p class="text-muted">Engage in real-time conversations, create compelling thread content, and leverage Twitter's unique culture for brand building and customer service.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="platform-card">
+                        <div class="platform-icon linkedin-bg">
+                            <i class="fab fa-linkedin-in"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">LinkedIn</h4>
+                        <p class="text-muted">Develop B2B content strategies, build professional brand authority, and use LinkedIn's targeting options for lead generation and networking.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="platform-card">
+                        <div class="platform-icon" style="background: linear-gradient(135deg, #FF4500, #FF6B35);">
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">YouTube</h4>
+                        <p class="text-muted">Create engaging video content, optimize for YouTube SEO, and leverage YouTube Ads for long-form content marketing and brand storytelling.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Paid Ads Section -->
+    <section class="section-padding section-alt">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="h1 fw-bold">Paid Social Advertising</h2>
+                    <p class="lead text-muted">Master the art of social media advertising across all major platforms</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="feature-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Ad Platform Mastery</h4>
+                    <p class="text-muted mb-4">Navigate Meta Business Manager, TikTok Ads Manager, LinkedIn Campaign Manager, and Twitter Ads with confidence. Learn platform-specific features and optimization techniques.</p>
+                    
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Ad Creative Types</h4>
+                    <p class="text-muted">Master story ads, carousel formats, video campaigns, collection ads, and dynamic product ads. Understand when and how to use each format for maximum impact.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Budget & Bidding Strategies</h4>
+                    <p class="text-muted mb-4">Learn cost-per-click (CPC), cost-per-impression (CPM), and cost-per-acquisition (CPA) bidding. Optimize budget allocation across campaigns and ad sets.</p>
+                    
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Advanced Targeting</h4>
+                    <p class="text-muted">Implement pixel tracking, create lookalike audiences, build custom audiences, and master retargeting campaigns for higher conversion rates and lower costs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Materials -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="h1 fw-bold">Course Materials</h2>
+                    <p class="lead text-muted">Everything you need to succeed in social media marketing</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="material-item">
+                        <div class="material-icon">
+                            <i class="fas fa-file-download"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2">Post Templates</h5>
+                        <p class="text-muted small">50+ customizable templates for all platforms</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="material-item">
+                        <div class="material-icon">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2">Video Lessons</h5>
+                        <p class="text-muted small">12 hours of step-by-step tutorials</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="material-item">
+                        <div class="material-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2">Ad Examples</h5>
+                        <p class="text-muted small">Real campaign screenshots and case studies</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="material-item">
+                        <div class="material-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h5 class="fw-bold mb-2">Content Calendar</h5>
+                        <p class="text-muted small">Monthly planning templates and schedules</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Outcomes -->
+    <section class="section-padding section-alt">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="h1 fw-bold mb-4">Learning Outcomes</h2>
+                    <p class="lead text-muted mb-5">After completing this module, you'll have the skills to:</p>
+                    
+                    <div class="mb-4">
+                        <span class="outcome-badge">Build Content Calendars</span>
+                        <span class="outcome-badge">Run Meta Ad Campaigns</span>
+                        <span class="outcome-badge">Optimize for Conversions</span>
+                        <span class="outcome-badge">Analyze Platform Analytics</span>
+                        <span class="outcome-badge">Create Viral Content</span>
+                        <span class="outcome-badge">Manage Ad Budgets</span>
+                        <span class="outcome-badge">A/B Test Campaigns</span>
+                        <span class="outcome-badge">Build Brand Communities</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row g-4 mt-5">
+                <div class="col-lg-4">
+                    <div class="stats-card">
+                        <div class="stats-number">15+</div>
+                        <h5 class="fw-bold">Platforms Covered</h5>
+                        <p class="text-muted">Master all major social media platforms</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="stats-card">
+                        <div class="stats-number">50+</div>
+                        <h5 class="fw-bold">Templates Included</h5>
+                        <p class="text-muted">Ready-to-use content and ad templates</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="stats-card">
+                        <div class="stats-number">12h</div>
+                        <h5 class="fw-bold">Video Content</h5>
+                        <p class="text-muted">Comprehensive video tutorials and walkthroughs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="h1 fw-bold mb-4">Ready to Master Social Media Marketing?</h2>
+                    <p class="lead text-muted mb-5">Join thousands of students who have transformed their social media presence and grown their businesses through strategic social media marketing.</p>
+                    <a href="#" class="btn btn-primary-custom btn-lg me-3">
+                        <i class="fas fa-rocket me-2"></i>Begin Module
+                    </a>
+                    <a href="#" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-info-circle me-2"></i>Course Preview
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero-section');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>

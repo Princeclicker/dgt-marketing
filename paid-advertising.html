@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paid Advertising (PPC): Google Ads and Retargeting - Digital Marketing Course</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --border-color: #e5e7eb;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .section-padding {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+            height: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .learning-objectives {
+            background: var(--bg-light);
+        }
+        
+        .objective-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .objective-icon {
+            color: var(--primary-color);
+            margin-right: 1rem;
+            margin-top: 0.2rem;
+            font-size: 1.1rem;
+        }
+        
+        .btn-primary-custom {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+        }
+        
+        .stats-section {
+            background: var(--text-dark);
+            color: white;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            display: block;
+        }
+        
+        .material-item {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        
+        .material-item:hover {
+            border-color: var(--primary-color);
+            transform: translateX(5px);
+        }
+        
+        .material-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--bg-light);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        
+        .outcome-badge {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero-icon {
+                font-size: 3rem;
+            }
+            
+            .section-padding {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center hero-content">
+                    <div class="hero-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h1 class="display-4 fw-bold mb-4">Paid Advertising (PPC)</h1>
+                    <p class="lead mb-4">Master high-converting ad campaigns using Google Ads and Retargeting strategies.</p>
+                    <button class="btn btn-primary-custom btn-lg">
+                        <i class="fas fa-play me-2"></i>Start This Module
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Overview -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">What This Course Covers</h2>
+                    <p class="lead">This comprehensive course teaches you how to set up PPC campaigns, create ad groups, manage budgets, write compelling ads, and retarget visitors using display and video ad networks. You'll master the art of paid advertising across Google's ecosystem and learn to maximize your return on investment through strategic campaign optimization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Objectives -->
+    <section class="learning-objectives section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">What You'll Learn</h2>
+                    <p class="section-subtitle">Master these essential PPC skills and strategies</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="objective-item">
+                        <i class="fas fa-check-circle objective-icon"></i>
+                        <div>
+                            <h5 class="mb-2">Introduction to PPC and Google Ads</h5>
+                            <p class="mb-0 text-muted">Understand the fundamentals of pay-per-click advertising and Google's advertising platform.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="objective-item">
+                        <i class="fas fa-check-circle objective-icon"></i>
+                        <div>
+                            <h5 class="mb-2">Creating search, display, and video campaigns</h5>
+                            <p class="mb-0 text-muted">Build comprehensive campaigns across all Google Ads formats and networks.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="objective-item">
+                        <i class="fas fa-check-circle objective-icon"></i>
+                        <div>
+                            <h5 class="mb-2">Bidding strategies: CPC, CPM, CPA</h5>
+                            <p class="mb-0 text-muted">Master different bidding models and choose the right strategy for your goals.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="objective-item">
+                        <i class="fas fa-check-circle objective-icon"></i>
+                        <div>
+                            <h5 class="mb-2">Writing ad copy and using extensions</h5>
+                            <p class="mb-0 text-muted">Create compelling ad copy and leverage extensions to maximize ad performance.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="objective-item">
+                        <i class="fas fa-check-circle objective-icon"></i>
+                        <div>
+                            <h5 class="mb-2">Setting up retargeting (remarketing) campaigns</h5>
+                            <p class="mb-0 text-muted">Re-engage previous visitors with strategic remarketing campaigns.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="objective-item">
+                        <i class="fas fa-check-circle objective-icon"></i>
+                        <div>
+                            <h5 class="mb-2">Using conversion tracking and Google Tag Manager</h5>
+                            <p class="mb-0 text-muted">Implement proper tracking to measure and optimize campaign performance.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 mb-4">
+                    <div class="objective-item">
+                        <i class="fas fa-check-circle objective-icon"></i>
+                        <div>
+                            <h5 class="mb-2">Reading ad reports and optimizing ROI</h5>
+                            <p class="mb-0 text-muted">Analyze campaign data and make data-driven optimizations to improve return on investment.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Ads Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Google Ads Mastery</h2>
+                    <p class="section-subtitle">Understand campaign types and how ads are triggered</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h5 class="mb-3">Search Campaigns</h5>
+                        <p class="text-muted">Target users actively searching for your products or services with text ads on Google search results.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <h5 class="mb-3">Display Campaigns</h5>
+                        <p class="text-muted">Reach audiences across millions of websites with visual banner ads and responsive display ads.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h5 class="mb-3">Shopping Campaigns</h5>
+                        <p class="text-muted">Showcase your products with rich product information directly in Google search results.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon mx-auto">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h5 class="mb-3">Video Campaigns</h5>
+                        <p class="text-muted">Engage audiences with video ads on YouTube and across Google's video partner network.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto">
+                    <div class="feature-card">
+                        <div class="row align-items-center">
+                            <div class="col-md-3 text-center">
+                                <i class="fas fa-key text-primary" style="font-size: 3rem;"></i>
+                            </div>
+                            <div class="col-md-9">
+                                <h4 class="mb-3">Keyword Triggering</h4>
+                                <p class="mb-0">Learn how ads are triggered by keywords, including match types (broad, phrase, exact), negative keywords, and keyword quality scores. Master the art of keyword research and selection to ensure your ads appear for the right searches at the right time.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Retargeting Section -->
+    <section class="section-padding" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Retargeting Mastery</h2>
+                    <p class="section-subtitle">Re-engage visitors and maximize conversion opportunities</p>
+                </div>
+            </div>
+            <div class="row g-4 mb-5">
+                <div class="col-lg-6">
+                    <div class="feature-card h-100">
+                        <h4 class="mb-3">
+                            <i class="fas fa-redo-alt text-primary me-2"></i>
+                            What is Retargeting?
+                        </h4>
+                        <p class="mb-3">Retargeting (remarketing) is a powerful advertising strategy that allows you to show ads to people who have previously visited your website or interacted with your brand. It works by placing a tracking pixel on your site that creates audiences of past visitors, enabling you to serve them targeted ads as they browse other websites or social media platforms.</p>
+                        <div class="outcome-badge">
+                            <i class="fas fa-chart-line me-1"></i>
+                            2-3x higher conversion rates
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="feature-card h-100">
+                        <h4 class="mb-3">
+                            <i class="fas fa-balance-scale text-primary me-2"></i>
+                            Facebook vs Google Retargeting
+                        </h4>
+                        <p class="mb-3">Compare the strengths of each platform: Google's retargeting reaches users across millions of websites and YouTube, while Facebook offers detailed demographic and interest targeting across Facebook, Instagram, and Messenger. Learn when to use each platform and how to create cohesive cross-platform retargeting strategies.</p>
+                        <div class="outcome-badge">
+                            <i class="fas fa-users me-1"></i>
+                            Reach 90%+ of internet users
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="feature-card">
+                        <h4 class="mb-4 text-center">
+                            <i class="fas fa-route text-primary me-2"></i>
+                            Customer Journey Example
+                        </h4>
+                        <div class="row text-center">
+                            <div class="col-md-3 mb-3">
+                                <div class="feature-icon mx-auto mb-2" style="width: 50px; height: 50px; font-size: 1.2rem;">
+                                    <i class="fas fa-mouse-pointer"></i>
+                                </div>
+                                <h6>1. Website Visit</h6>
+                                <small class="text-muted">User visits product page</small>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="feature-icon mx-auto mb-2" style="width: 50px; height: 50px; font-size: 1.2rem;">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <h6>2. Pixel Tracking</h6>
+                                <small class="text-muted">Visitor added to audience</small>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="feature-icon mx-auto mb-2" style="width: 50px; height: 50px; font-size: 1.2rem;">
+                                    <i class="fab fa-youtube"></i>
+                                </div>
+                                <h6>3. YouTube Ad</h6>
+                                <small class="text-muted">Retargeted on YouTube</small>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="feature-icon mx-auto mb-2" style="width: 50px; height: 50px; font-size: 1.2rem;">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <h6>4. Conversion</h6>
+                                <small class="text-muted">Returns and purchases</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Materials -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Course Materials</h2>
+                    <p class="section-subtitle">Everything you need to succeed in PPC advertising</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="material-item">
+                        <div class="material-icon">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">Video Tutorials</h6>
+                            <small class="text-muted">Step-by-step campaign setup guides</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="material-item">
+                        <div class="material-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">Ad Templates</h6>
+                            <small class="text-muted">Downloadable PDF templates</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="material-item">
+                        <div class="material-icon">
+                            <i class="fas fa-file-excel"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">Budget Calculators</h6>
+                            <small class="text-muted">Excel spreadsheets for planning</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="material-item">
+                        <div class="material-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">Campaign Checklist</h6>
+                            <small class="text-muted">Pre-launch optimization guide</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="material-item">
+                        <div class="material-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">Landing Page Examples</h6>
+                            <small class="text-muted">High-converting page samples</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="material-item">
+                        <div class="material-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">Reporting Templates</h6>
+                            <small class="text-muted">Track performance metrics</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Outcomes Section -->
+    <section class="stats-section section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title text-white">Course Outcomes</h2>
+                    <p class="section-subtitle text-light">What you'll be able to accomplish after completing this module</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6 mb-4">
+                    <div class="feature-card">
+                        <div class="d-flex align-items-start">
+                            <div class="feature-icon me-3" style="width: 50px; height: 50px; font-size: 1.2rem;">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-2">Build a Google Ads campaign from scratch</h5>
+                                <p class="text-muted mb-0">Create complete campaigns including keyword research, ad groups, compelling ad copy, and proper targeting settings.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="feature-card">
+                        <div class="d-flex align-items-start">
+                            <div class="feature-icon me-3" style="width: 50px; height: 50px; font-size: 1.2rem;">
+                                <i class="fas fa-redo"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-2">Launch retargeting campaigns for any website</h5>
+                                <p class="text-muted mb-0">Set up pixel tracking, create custom audiences, and deploy remarketing campaigns across Google and Facebook networks.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="feature-card">
+                        <div class="d-flex align-items-start">
+                            <div class="feature-icon me-3" style="width: 50px; height: 50px; font-size: 1.2rem;">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-2">Track and report ad spend performance</h5>
+                                <p class="text-muted mb-0">Implement conversion tracking, analyze campaign metrics, and create comprehensive performance reports for stakeholders.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="feature-card">
+                        <div class="d-flex align-items-start">
+                            <div class="feature-icon me-3" style="width: 50px; height: 50px; font-size: 1.2rem;">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-2">Optimize ads for higher ROI</h5>
+                                <p class="text-muted mb-0">Use data-driven insights to improve campaign performance, reduce costs, and maximize return on advertising spend.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <button class="btn btn-primary-custom btn-lg">
+                        <i class="fas fa-play me-2"></i>Start Learning PPC Today
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all feature cards
+        document.querySelectorAll('.feature-card, .objective-item, .material-item').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

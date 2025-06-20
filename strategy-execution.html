@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategy & Execution: Digital Marketing Planning and Capstone Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --border-color: #e5e7eb;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+
+        .card-custom {
+            border: none;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .card-custom:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .icon-box i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .btn-primary-custom {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        .learning-objectives {
+            background: var(--bg-light);
+        }
+
+        .objective-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .objective-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .objective-icon i {
+            font-size: 0.8rem;
+            color: white;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--accent-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 1.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--accent-color);
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .resource-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .resource-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .resource-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .resource-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .outcomes-section {
+            background: var(--bg-light);
+        }
+
+        .outcome-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .timeline {
+                padding-left: 1rem;
+            }
+            
+            .timeline::before {
+                left: 0.5rem;
+            }
+            
+            .timeline-item::before {
+                left: -1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8 hero-content">
+                    <div class="hero-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h1 class="display-4 fw-bold mb-3">Strategy & Execution</h1>
+                    <p class="lead mb-4">Develop a full digital marketing plan and launch your final capstone project.</p>
+                    <button class="btn btn-primary-custom btn-lg">
+                        <i class="fas fa-play me-2"></i>Begin Final Module
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Overview -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">Course Overview</h2>
+                    <p class="section-subtitle">This module is the final step in your learning journey. Students will create and present a real, complete digital marketing strategy for a mock or real business. This comprehensive capstone includes all elements learned across previous modules — audience research, content planning, ads, SEO, analytics, and more. You'll synthesize everything you've learned into one cohesive, professional marketing strategy that demonstrates your mastery of digital marketing principles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Objectives -->
+    <section class="learning-objectives section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">What You'll Learn</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="objective-item">
+                        <div class="objective-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div>
+                            <strong>How to research and define a digital marketing objective</strong>
+                        </div>
+                    </div>
+                    <div class="objective-item">
+                        <div class="objective-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div>
+                            <strong>Creating a multi-channel strategy (SEO, content, social, PPC, email)</strong>
+                        </div>
+                    </div>
+                    <div class="objective-item">
+                        <div class="objective-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div>
+                            <strong>Setting KPIs and building reporting frameworks</strong>
+                        </div>
+                    </div>
+                    <div class="objective-item">
+                        <div class="objective-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div>
+                            <strong>Structuring and presenting a real marketing plan</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="objective-item">
+                        <div class="objective-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div>
+                            <strong>Creating a complete capstone project with real tools and templates</strong>
+                        </div>
+                    </div>
+                    <div class="objective-item">
+                        <div class="objective-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div>
+                            <strong>Receiving feedback and adjusting strategy</strong>
+                        </div>
+                    </div>
+                    <div class="objective-item">
+                        <div class="objective-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div>
+                            <strong>Preparing for real-world application or client work</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digital Marketing Planning -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Digital Marketing Planning</h2>
+                    <p class="section-subtitle">Master the essential components of strategic marketing planning</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-custom">
+                        <div class="card-body text-center">
+                            <div class="icon-box mx-auto">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h5 class="card-title">SWOT & Competitor Analysis</h5>
+                            <p class="card-text">Learn to conduct comprehensive market analysis and identify competitive advantages in your digital marketing strategy.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-custom">
+                        <div class="card-body text-center">
+                            <div class="icon-box mx-auto">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h5 class="card-title">Target Audience Profiling</h5>
+                            <p class="card-text">Create detailed buyer personas and audience segments to guide your marketing decisions and channel selection.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-custom">
+                        <div class="card-body text-center">
+                            <div class="icon-box mx-auto">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <h5 class="card-title">Channel & Budget Planning</h5>
+                            <p class="card-text">Strategically allocate resources across digital channels and create realistic budgets for maximum ROI.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-custom">
+                        <div class="card-body text-center">
+                            <div class="icon-box mx-auto">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <h5 class="card-title">Timeline Creation</h5>
+                            <p class="card-text">Develop realistic project timelines with milestones, deadlines, and resource allocation for successful execution.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-custom">
+                        <div class="card-body text-center">
+                            <div class="icon-box mx-auto">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                            <h5 class="card-title">KPI Tracking Setup</h5>
+                            <p class="card-text">Establish key performance indicators and create measurement frameworks to track campaign success.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-custom">
+                        <div class="card-body text-center">
+                            <div class="icon-box mx-auto">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h5 class="card-title">Strategy Documentation</h5>
+                            <p class="card-text">Learn professional documentation standards and create comprehensive strategy documents that stakeholders can follow.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capstone Project -->
+    <section class="section-padding" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Capstone Project</h2>
+                    <p class="section-subtitle">Apply everything from the course into one cohesive campaign</p>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card card-custom">
+                        <div class="card-body p-4">
+                            <p class="mb-4">Students will apply everything from the course into one cohesive campaign. You'll choose a business (real or sample), plan, execute, and track a multi-channel digital marketing campaign, then present results in a formal document or slide deck.</p>
+                            <p class="mb-0">This capstone project serves as the culmination of your learning journey, demonstrating your ability to synthesize complex marketing concepts into actionable strategies that drive real business results.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project Timeline -->
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h4 class="mb-4 text-center">4-Week Project Timeline</h4>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h5 class="fw-bold text-primary">Week 1: Research & Planning</h5>
+                            <p class="mb-0">Business selection, market research, competitor analysis, and audience profiling. Define objectives and KPIs.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5 class="fw-bold text-primary">Week 2: Strategy Development</h5>
+                            <p class="mb-0">Create multi-channel strategy, budget allocation, content planning, and campaign timeline development.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5 class="fw-bold text-primary">Week 3: Implementation & Execution</h5>
+                            <p class="mb-0">Launch campaigns across selected channels, set up tracking and analytics, begin content creation and distribution.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5 class="fw-bold text-primary">Week 4: Analysis & Presentation</h5>
+                            <p class="mb-0">Analyze results, create comprehensive report, prepare final presentation, and submit capstone project.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Resources -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Project Resources</h2>
+                    <p class="section-subtitle">Everything you need to complete your capstone project successfully</p>
+                </div>
+            </div>
+            <div class="resource-grid">
+                <div class="resource-item">
+                    <div class="resource-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h5>Marketing Plan Template</h5>
+                    <p>Comprehensive PDF and Google Docs templates to structure your marketing strategy professionally.</p>
+                </div>
+                <div class="resource-item">
+                    <div class="resource-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h5>KPI Dashboard Example</h5>
+                    <p>Excel and Data Studio templates for tracking and visualizing your campaign performance metrics.</p>
+                </div>
+                <div class="resource-item">
+                    <div class="resource-icon">
+                        <i class="fas fa-presentation"></i>
+                    </div>
+                    <h5>Presentation Slides</h5>
+                    <p>Professional slide deck templates for presenting your capstone project and marketing strategy.</p>
+                </div>
+                <div class="resource-item">
+                    <div class="resource-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h5>Final Checklists</h5>
+                    <p>Step-by-step checklists and submission instructions to ensure project completion and quality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Outcomes -->
+    <section class="outcomes-section section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">What Students Will Be Able to Do</h2>
+                    <p class="section-subtitle">Upon completion, you'll have the skills and confidence to excel in digital marketing</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="outcome-card">
+                        <div class="d-flex align-items-start">
+                            <div class="icon-box me-3" style="width: 50px; height: 50px;">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div>
+                                <h5>Build a full digital marketing strategy for any business</h5>
+                                <p class="mb-0">Create comprehensive, data-driven marketing strategies that align with business objectives and drive measurable results.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="outcome-card">
+                        <div class="d-flex align-items-start">
+                            <div class="icon-box me-3" style="width: 50px; height: 50px;">
+                                <i class="fas fa-microphone"></i>
+                            </div>
+                            <div>
+                                <h5>Present a strategic marketing proposal with confidence</h5>
+                                <p class="mb-0">Deliver compelling presentations that communicate strategy, justify decisions, and secure stakeholder buy-in.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="outcome-card">
+                        <div class="d-flex align-items-start">
+                            <div class="icon-box me-3" style="width: 50px; height: 50px;">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <div>
+                                <h5>Execute cross-channel campaigns with clear KPIs</h5>
+                                <p class="mb-0">Manage integrated marketing campaigns across multiple channels while tracking performance and optimizing for success.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="outcome-card">
+                        <div class="d-flex align-items-start">
+                            <div class="icon-box me-3" style="width: 50px; height: 50px;">
+                                <i class="fas fa-portfolio"></i>
+                            </div>
+                            <div>
+                                <h5>Complete a capstone project for their portfolio or client use</h5>
+                                <p class="mb-0">Develop a professional-grade marketing strategy that demonstrates expertise and can be used for portfolio or client work.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="outcome-card">
+                        <div class="d-flex align-items-start">
+                            <div class="icon-box me-3" style="width: 50px; height: 50px;">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div>
+                                <h5>Be job-ready for roles in digital strategy or freelance marketing work</h5>
+                                <p class="mb-0">Gain the practical skills, strategic thinking, and professional confidence needed to succeed in digital marketing careers or launch a freelance practice.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding text-center" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: white;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="display-5 fw-bold mb-3">Ready to Launch Your Marketing Career?</h2>
+                    <p class="lead mb-4">Complete your final capstone project and demonstrate your mastery of digital marketing strategy and execution.</p>
+                    <button class="btn btn-light btn-lg px-5 py-3">
+                        <i class="fas fa-rocket me-2"></i>Start Your Capstone Project
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

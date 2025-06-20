@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data & Analytics: Google Analytics and A/B Testing</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #10b981;
+            --accent-color: #f59e0b;
+            --dark-color: #1f2937;
+            --light-gray: #f8fafc;
+            --medium-gray: #64748b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1e40af 100%);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="30" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="60" cy="15" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="25" r="2.5" fill="rgba(255,255,255,0.1)"/><path d="M10,50 Q30,30 50,50 T90,50" stroke="rgba(255,255,255,0.2)" stroke-width="2" fill="none"/></svg>') repeat;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-primary-custom {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary-custom:hover {
+            background-color: #059669;
+            border-color: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        .card-custom {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .card-custom:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 1rem;
+        }
+
+        .icon-primary {
+            background-color: rgba(37, 99, 235, 0.1);
+            color: var(--primary-color);
+        }
+
+        .icon-secondary {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--secondary-color);
+        }
+
+        .icon-accent {
+            background-color: rgba(245, 158, 11, 0.1);
+            color: var(--accent-color);
+        }
+
+        .learning-outcome {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            padding: 15px;
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .learning-outcome i {
+            color: var(--secondary-color);
+            margin-right: 12px;
+            margin-top: 2px;
+            font-size: 16px;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .timeline-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .timeline-content {
+            background-color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            flex-grow: 1;
+        }
+
+        .stats-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, var(--secondary-color), #059669);
+            color: white;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .dashboard-preview {
+            background-color: var(--light-gray);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .dashboard-preview i {
+            font-size: 4rem;
+            color: var(--medium-gray);
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 60px 0;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .timeline-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 hero-content">
+                    <h1 class="display-4 fw-bold mb-3">Data & Analytics</h1>
+                    <p class="lead mb-4">Learn how to track, measure, and improve digital performance using Google Analytics and A/B testing.</p>
+                    <button class="btn btn-primary-custom btn-lg">
+                        <i class="fas fa-play me-2"></i>Start Module
+                    </button>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <div class="icon-box mx-auto" style="width: 120px; height: 120px; background-color: rgba(255,255,255,0.1);">
+                        <i class="fas fa-chart-line" style="font-size: 48px; color: white;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Overview Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h2 class="section-title text-center">Course Overview</h2>
+                    <p class="lead text-center mb-5">
+                        In this comprehensive module, students will gain hands-on experience using Google Analytics to track website performance, understand user behavior, and make data-driven decisions. You'll learn to read and interpret performance data, create meaningful reports, and conduct A/B tests to optimize websites and campaigns. This practical approach emphasizes the critical value of data-driven decision-making in modern digital marketing, giving you the skills to turn raw analytics into strategic business insights.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Outcomes Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">What You'll Learn</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="learning-outcome">
+                        <i class="fas fa-cog"></i>
+                        <span>Setting up Google Analytics (GA4) for a website</span>
+                    </div>
+                    <div class="learning-outcome">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Understanding key metrics: sessions, bounce rate, conversion rate</span>
+                    </div>
+                    <div class="learning-outcome">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Creating custom dashboards and reports</span>
+                    </div>
+                    <div class="learning-outcome">
+                        <i class="fas fa-users"></i>
+                        <span>Interpreting traffic sources and user behavior</span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="learning-outcome">
+                        <i class="fas fa-flask"></i>
+                        <span>Designing and running A/B tests</span>
+                    </div>
+                    <div class="learning-outcome">
+                        <i class="fas fa-tools"></i>
+                        <span>Using Google Optimize or equivalent testing tools</span>
+                    </div>
+                    <div class="learning-outcome">
+                        <i class="fas fa-brain"></i>
+                        <span>Making decisions based on real-time performance data</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Analytics Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Google Analytics Mastery</h2>
+                    <p class="mb-4">
+                        Google Analytics 4 (GA4) represents the future of web analytics, offering enhanced tracking capabilities and machine learning insights. You'll master the platform's advanced features including event-based tracking, custom dimensions, and predictive metrics.
+                    </p>
+                    <h5 class="fw-bold mb-3">Example Use Cases:</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Improving landing page conversion rates</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Tracking campaign ROI across channels</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Understanding customer journey paths</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Identifying high-value traffic sources</li>
+                    </ul>
+                    <p class="text-muted">
+                        <i class="fas fa-link me-2"></i>Includes integration with Google Ads and Tag Manager
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="dashboard-preview">
+                        <i class="fas fa-chart-area"></i>
+                        <h5 class="mt-3">GA4 Dashboard Preview</h5>
+                        <p class="text-muted">Interactive analytics dashboard with real-time data visualization</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- A/B Testing Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">A/B Testing Excellence</h2>
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <p class="lead">
+                        A/B testing is the scientific method of digital marketing. By comparing two versions of a webpage, email, or ad, you can determine which performs better and make data-backed decisions that improve your results.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row mb-5">
+                <div class="col-lg-4">
+                    <div class="card card-custom">
+                        <div class="card-body text-center">
+                            <div class="icon-box icon-primary mx-auto">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h5 class="card-title">Common Test Examples</h5>
+                            <ul class="list-unstyled text-start">
+                                <li>• Headline variations</li>
+                                <li>• Button colors and text</li>
+                                <li>• Image swaps</li>
+                                <li>• Form layouts</li>
+                                <li>• Call-to-action placement</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card card-custom">
+                        <div class="card-body text-center">
+                            <div class="icon-box icon-secondary mx-auto">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h5 class="card-title">Testing Tools</h5>
+                            <ul class="list-unstyled text-start">
+                                <li>• Google Optimize</li>
+                                <li>• VWO (Visual Website Optimizer)</li>
+                                <li>• Optimizely</li>
+                                <li>• Adobe Target</li>
+                                <li>• Third-party platforms</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card card-custom">
+                        <div class="card-body text-center">
+                            <div class="icon-box icon-accent mx-auto">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h5 class="card-title">Why It Matters</h5>
+                            <ul class="list-unstyled text-start">
+                                <li>• Eliminate guesswork</li>
+                                <li>• Increase conversion rates</li>
+                                <li>• Reduce bounce rates</li>
+                                <li>• Improve user experience</li>
+                                <li>• Maximize ROI</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testing Timeline -->
+            <h4 class="text-center mb-4">A/B Testing Process</h4>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">1</div>
+                    <div class="timeline-content">
+                        <h6 class="fw-bold">Setup</h6>
+                        <p class="mb-0">Define hypothesis, create variations, and configure tracking</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">2</div>
+                    <div class="timeline-content">
+                        <h6 class="fw-bold">Test</h6>
+                        <p class="mb-0">Run experiment with sufficient sample size and duration</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">3</div>
+                    <div class="timeline-content">
+                        <h6 class="fw-bold">Analyze</h6>
+                        <p class="mb-0">Review results for statistical significance and insights</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">4</div>
+                    <div class="timeline-content">
+                        <h6 class="fw-bold">Apply</h6>
+                        <p class="mb-0">Implement winning variation and plan next tests</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Materials Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Course Materials</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card card-custom text-center">
+                        <div class="card-body">
+                            <div class="icon-box icon-primary mx-auto">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h6 class="card-title">Practice Datasets</h6>
+                            <p class="card-text text-muted">Real-world data samples for hands-on analysis</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card card-custom text-center">
+                        <div class="card-body">
+                            <div class="icon-box icon-secondary mx-auto">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <h6 class="card-title">Video Walkthroughs</h6>
+                            <p class="card-text text-muted">Step-by-step tutorials and demonstrations</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card card-custom text-center">
+                        <div class="card-body">
+                            <div class="icon-box icon-accent mx-auto">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h6 class="card-title">Test Result Templates</h6>
+                            <p class="card-text text-muted">Professional reporting templates and frameworks</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card card-custom text-center">
+                        <div class="card-body">
+                            <div class="icon-box icon-primary mx-auto">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <h6 class="card-title">Sample KPI Dashboards</h6>
+                            <p class="card-text text-muted">Pre-built dashboard templates for various industries</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Outcomes Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">What You'll Be Able to Do</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="stats-card">
+                        <div class="stats-number">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h5 class="fw-bold">Track and Report</h5>
+                        <p class="mb-0">Monitor user behavior with confidence and create comprehensive performance reports</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="stats-card" style="background: linear-gradient(135deg, var(--primary-color), #1e40af);">
+                        <div class="stats-number">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h5 class="fw-bold">Launch and Evaluate</h5>
+                        <p class="mb-0">Design, execute, and analyze A/B tests to optimize performance</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="stats-card" style="background: linear-gradient(135deg, var(--accent-color), #d97706);">
+                        <div class="stats-number">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h5 class="fw-bold">Strategic Decisions</h5>
+                        <p class="mb-0">Transform raw data into actionable marketing strategies and insights</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="stats-card" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+                        <div class="stats-number">
+                            <i class="fas fa-presentation"></i>
+                        </div>
+                        <h5 class="fw-bold">Professional Reports</h5>
+                        <p class="mb-0">Build compelling reports and presentations for stakeholders and clients</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5" style="background: linear-gradient(135deg, var(--dark-color), #374151);">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="text-white mb-4">Ready to Master Data & Analytics?</h2>
+                    <p class="lead text-white-50 mb-4">
+                        Join thousands of marketers who have transformed their decision-making with data-driven insights.
+                    </p>
+                    <button class="btn btn-primary-custom btn-lg me-3">
+                        <i class="fas fa-play me-2"></i>Start Learning Now
+                    </button>
+                    <button class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-info-circle me-2"></i>Course Preview
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

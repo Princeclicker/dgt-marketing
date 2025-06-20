@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Mastery - Marketi-verse</title>
+    <link rel="shortcut icon" href="assets/images/fav-icon.png" type="image/x-icon">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #f59e0b;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --dark-color: #1f2937;
+            --light-color: #f8fafc;
+            --white: #ffffff;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --border-radius: 12px;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-200);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary-color);
+            border-radius: 1px;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #e2e8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+            opacity: 0.8;
+        }
+
+        .breadcrumb a {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        /* Main Content */
+        .main-content {
+            background: var(--white);
+            margin-top: -2rem;
+            border-radius: 2rem 2rem 0 0;
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Content Cards */
+        .content-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--gray-200);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .content-card h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .content-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .content-card h5 {
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .content-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Special Cards */
+        .urgency-card {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: var(--white);
+            border: none;
+        }
+
+        .urgency-card::before {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .urgency-card h2,
+        .urgency-card p {
+            color: var(--white);
+        }
+
+        .urgency-card p {
+            opacity: 0.95;
+        }
+
+        .comparison-card {
+            background: linear-gradient(135deg, #1e40af, #3730a3);
+            color: var(--white);
+            border: none;
+        }
+
+        .comparison-card::before {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .comparison-card h2,
+        .comparison-card h3,
+        .comparison-card p {
+            color: var(--white);
+        }
+
+        /* Image Containers */
+        .image-container {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: var(--gray-100);
+            border-radius: var(--border-radius);
+            border: 2px dashed var(--gray-300);
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Video Container */
+        .video-container {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: var(--gray-100);
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            aspect-ratio: 16/9;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            background: var(--gray-100);
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        .info-box p {
+            margin-bottom: 1rem;
+        }
+
+        .info-box strong {
+            color: var(--text-primary);
+        }
+
+        /* Grid Layout for Comparison */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .comparison-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Section Dividers */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gray-300), transparent);
+            margin: 4rem 0;
+            border: none;
+        }
+
+        /* Icons */
+        .icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gray-800);
+            color: var(--white);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            width: 3rem;
+            height: 3rem;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            background: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .footer-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: var(--gray-600);
+            margin: 2rem 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .content-card {
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .content-card h2 {
+                font-size: 1.5rem;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .footer-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .content-card:nth-child(even) {
+            animation-delay: 0.1s;
+        }
+
+        .content-card:nth-child(odd) {
+            animation-delay: 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">Marketi-verse</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="#" class="nav-link">Academix</a></li>
+                <li><a href="pricing.html" class="nav-link active">Calendar</a></li>
+            </ul>
+            <a href="#" class="cta-button">Get Started</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>SEO</h1>
+            <p>Don't wait—master Search Engine optimization today and start driving traffic that converts!</p>
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>></span>
+                <span>Modules</span>
+                <span>></span>
+                <span>SEO</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            
+            <!-- What is SEO Section -->
+            <div class="content-card">
+                <h2>
+                    <div class="icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    What is SEO?
+                </h2>
+                <p>SEO stands for Search Engine Optimization. It's the practice of improving a website or web page <br>
+                  so it ranks higher in search engine results—like Google or Bing—when people search for relevant topics. <br>
+                The better your SEO, the more likely your content will show up <br>
+                 when someone searches for something related to your business, blog, or service.</p>
+                 
+                <div class="image-container">
+                    <img src="assets/images/ChatGPT Image Apr 19, 2025, 11_16_50 AM.png" alt="SEO" />
+                </div>
+            </div>
+
+            <!-- Urgency Section -->
+            <div class="content-card urgency-card">
+                <h2>
+                    <div class="icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    Why SEO Matters Right Now
+                </h2>
+                <p>
+                    🚨 <strong>Why SEO Matters Right Now</strong> <br>
+                    In today's digital world, if you're not showing up on Google, you don't exist.
+                    <br>
+                    Search Engine Optimization (SEO) isn't just a buzzword—it's the lifeline of online visibility. Whether you're <br>
+                     running a business, building a personal brand, or trying to grow a blog, SEO is what gets you seen by the <br>
+                     right people at the right time.
+                    <br>
+                    💡 <strong>Here's the truth:</strong> <br>
+                    Your competitors are already optimizing. Every second you delay, you're losing traffic, leads, and potential income.
+                    <br>
+                    <strong>SEO helps you:</strong>
+                    <br>
+                    &#x2024; Show up on the first page of search results
+                    <br>
+                    &#x2024; Drive free, organic traffic
+                    <br>
+                    &#x2024; Build trust and credibility with your audience
+                    <br>
+                    &#x2024; Stay ahead of your competition
+                    <br>
+                    👉 Don't wait until it's too late. The longer you ignore SEO, the harder it is to catch up.
+                    <br>
+                    Start optimizing today—because Google doesn't wait for anyone.
+                </p>
+            </div>
+
+            <!-- Keyword Research Section -->
+            <div class="content-card">
+                <h2>
+                    <div class="icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    KEYWORD RESEARCH
+                </h2>
+                <h5>Mastering keywords is essential—it's how people find your content online.</h5>
+                
+                <div class="image-container">
+                    <img src="assets/images/keywords.jpeg" alt="Keywords" />
+                </div>
+                
+                <div class="info-box">
+                    <p><strong>Introduction to Keywords in SEO</strong> <br>
+                        Keywords are the words and phrases that people type into search engines when looking for information. In <br>
+                        SEO (Search Engine Optimization), keywords help search engines understand what your content is about.
+                        <br>
+                        <strong>Why Keywords Matter:</strong> <br>
+                        &#x2024; Help search engines match your content to a user's search. <br>
+                        
+                        &#x2024; Drive organic traffic to your site by targeting what people are actually searching.
+                        <br>
+                        &#x2024; Improve visibility by ranking higher on search results for relevant topics.
+                        <br>
+                        <strong>Types of Keywords:</strong> <br>
+                        &#x2024; Short-tail: One or two words (e.g., shoes). High search volume, but very competitive.
+                        <br>
+                        &#x2024; Long-tail: Three or more words (e.g., best running shoes for teens). Lower volume, but more specific and <br>
+                        easier to rank for.
+                        <br>
+                        &#x2024; LSI keywords: Related terms that give context to your main keyword (e.g., if your keyword is apple, LSI <br>
+                        could be fruit, iPhone, etc., depending on the context).
+                    </p>
+                </div>
+
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/CtC8zTlO9zA?si=Z2bmwHwk9JFW-Q3-" title="YouTube video player" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Backlinks Section -->
+            <div class="content-card">
+                <h2>
+                    <div class="icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    🔗 BACKLINKS
+                </h2>
+                
+                <div class="info-box">
+                    <p>
+                        <strong>🔗 What Are Backlinks?</strong><br>
+                        Backlinks (also called <strong>inbound links</strong> or <strong>incoming links</strong>) are created when one website links to another. For <br>
+                        example, if a blog post links to your website, that's a backlink for you.
+                    </p>
+                    
+                    <p>
+                        <strong>📈 Why Are Backlinks Important for SEO?</strong> <br>
+                        1. <strong>Authority & Trust</strong>: Search engines see backlinks as endorsements. If reputable websites link to yours, it <br>
+                        tells Google that your content is valuable and trustworthy. <br>
+                        2. <strong>Ranking Boost</strong>: Pages with more high-quality backlinks tend to rank higher in search results. <br>
+                        3. <strong>Faster Indexing</strong>: Search engine bots discover new content by following links. Backlinks help them find <br>
+                        and index your pages quicker. <br>
+                        4. <strong>Referral Traffic</strong>: Besides SEO, backlinks can bring direct traffic from people clicking the links on other <br>
+                        sites.
+                    </p>
+                    
+                    <p>
+                        <strong>✅ Not All Backlinks Are Equal</strong> <br>
+                        - <strong>High-Quality Backlinks</strong>: From authoritative, relevant, and trusted websites (e.g., news outlets, <br>
+                        government pages, popular blogs). <br>
+                        - <strong>Low-Quality Backlinks</strong>: From spammy, unrelated, or low-authority sites can hurt your SEO. <br>
+                        - <strong>Dofollow vs Nofollow</strong>: <br>
+                          - <strong>Dofollow</strong>: Passes SEO value (link juice). <br>
+                          - <strong>Nofollow</strong>: Doesn't pass SEO value but can still bring traffic.
+                    </p>
+                    
+                    <p>
+                        <strong>🧠 How to Get Backlinks?</strong> <br>
+                        1. <strong>Create valuable content</strong> others want to reference. <br>
+                        2. <strong>Guest post</strong> on relevant blogs in your niche. <br>
+                        3. <strong>Build relationships</strong> with bloggers and site owners. <br>
+                        4. <strong>Submit to directories</strong> or listings (but avoid spammy ones). <br>
+                        5. <strong>Fix broken links</strong> by suggesting your site as a replacement.
+                    </p>
+                    
+                    <p>
+                        <strong>⚠️ Avoid These:</strong> <br>
+                        - Buying backlinks (violates Google's guidelines). <br>
+                        - Using automated link-building tools. <br>
+                        - Link exchanges or schemes.
+                    </p>
+                </div>
+            </div>
+
+            <hr class="section-divider">
+
+            <!-- Content SEO Section -->
+            <div class="content-card">
+                <h2>
+                    <div class="icon">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    📝 CONTENT IN SEO
+                </h2>
+                
+                <p>In SEO, <strong>content</strong> refers to any information—text, images, videos, or audio—that's created and published on a <br>
+                    website to attract and engage users while helping search engines understand what your site is about.</p>
+                    
+                <div class="info-box">
+                    <p>
+                    <strong>🔍 Why Content Matters in SEO:</strong> <br>
+                    1. <strong>Relevance</strong>: Good content answers the searcher's question or solves their problem. <br>
+                    2. <strong>Keywords</strong>: It's where you naturally include keywords people are searching for. <br>
+                    3. <strong>Engagement</strong>: Quality content keeps visitors on your site longer and encourages sharing or linking (which boosts SEO). <br>
+                    4. <strong>Indexing</strong>: Search engines use your content to decide when and where to show your pages in search results.
+                    </p>
+                    
+                    <p>
+                    <strong>📌 Types of SEO Content:</strong> <br>
+                    - Blog posts and articles <br>
+                    - Product and service pages <br>
+                    - Landing pages <br>
+                    - Infographics and videos <br>
+                    - FAQs and guides
+                    </p>
+                    
+                    <p>
+                    <strong>✨ Great SEO Content Is:</strong> <br>
+                    - <strong>Useful</strong>: Solves problems or provides value <br>
+                    - <strong>Targeted</strong>: Includes relevant keywords <br>
+                    - <strong>Well-structured</strong>: Uses headers, bullet points, and clear formatting <br>
+                    - <strong>Original</strong>: Not copied from other sites <br>
+                    - <strong>Regularly updated</strong>: Keeps information fresh
+                    </p>
+                </div>
+            </div>
+
+            <!-- On-Site vs Off-Site SEO Section -->
+            <div class="content-card comparison-card">
+                <h2>
+                    <div class="icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    🏠 ON-SITE vs OFF-SITE SEO
+                </h2>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <h3>🏠 On-Site SEO (On-Page SEO)</h3>
+                        <p>On-Site SEO is all about optimizing the content and structure <strong>within your own website</strong> to make it search engine–friendly.</p>
+                        
+                        <p><strong>Key elements of On-Site SEO:</strong> <br>
+                        - <strong>Title tags</strong> and <strong>meta descriptions</strong> <br>
+                        - <strong>URL structure</strong> (short, readable, keyword-rich) <br>
+                        - <strong>Header tags</strong> (H1, H2, etc.) <br>
+                        - <strong>Keyword usage</strong> in content
+                        - <strong>Internal linking</strong> (linking to other pages on your site) <br>
+                        - <strong>Alt text</strong> for images <br>
+                        - <strong>Page speed</strong> and mobile-friendliness <br>
+                        - <strong>Content quality</strong> and relevance <br>
+                        - <strong>User experience (UX)</strong> and site navigation</p>
+                        
+                        <p>🟢 <em>You have full control over On-Site SEO.</em></p>
+                    </div>
+                    
+                    <div class="comparison-item">
+                        <h3>🌐 Off-Site SEO (Off-Page SEO)</h3>
+                        <p>Off-Site SEO is about building your website's reputation and authority <strong>outside of your own site</strong>.</p>
+                        
+                        <p><strong>Key elements of Off-Site SEO:</strong> <br>
+                        - <strong>Backlinks</strong> (from other websites to yours) <br>
+                        - <strong>Social media signals</strong> (shares, mentions, etc.) <br>
+                        - <strong>Online reviews</strong> and ratings <br>
+                        - <strong>Brand mentions</strong> (even without a link) <br>
+                        - <strong>Influencer or blogger outreach</strong> <br>
+                        - <strong>Guest posting</strong> on other sites</p>
+                        
+                        <p>🔵 <em>You don't fully control Off-Site SEO—it depends on others, but you can influence it.</em></p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <p><strong>👉 In simple terms:</strong>  <br>
+                    - On-Site SEO gets your house in order.  <br>
+                    - Off-Site SEO gets people talking about your house.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" class="social-link" title="facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-link" title="instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link" title="linkedin">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+            <div class="footer-info">
+               <p>Full time</p>
+               <p>|</p>
+               <p>24/7</p>
+               <p>|</p>
+               <p>Working every Hour</p>
+            </div>
+            <div class="footer-divider"></div>
+            <p>Copyright © 2025 DGT Marketing. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

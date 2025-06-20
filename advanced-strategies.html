@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Strategies: Affiliate Marketing and Technical SEO</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --border-color: #e5e7eb;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-icons {
+            position: absolute;
+            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.2;
+            font-size: 8rem;
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+
+        .card-custom {
+            border: none;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-custom:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn-primary-custom {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .learning-objective {
+            background: var(--bg-light);
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .content-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .tool-badge {
+            background: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 0.25rem;
+            display: inline-block;
+        }
+
+        .outcome-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+        }
+
+        .outcome-icon {
+            color: var(--primary-color);
+            margin-right: 1rem;
+            margin-top: 0.25rem;
+        }
+
+        .material-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .material-item:hover {
+            border-color: var(--primary-color);
+            transform: translateX(5px);
+        }
+
+        .material-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-light);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 60px 0;
+            }
+            
+            .hero-icons {
+                display: none;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .section-padding {
+                padding: 40px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <div class="hero-content">
+                        <h1 class="display-4 fw-bold mb-3">Advanced Strategies</h1>
+                        <p class="lead mb-4">Learn how to earn through affiliate marketing and boost your visibility with technical SEO.</p>
+                        <button class="btn btn-primary-custom btn-lg">
+                            <i class="fas fa-play-circle me-2"></i>
+                            Enroll in This Module
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="hero-icons d-none d-lg-block">
+                        <i class="fas fa-link"></i>
+                        <i class="fas fa-search ms-3"></i>
+                        <i class="fas fa-chart-line ms-3"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Overview Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="text-center mb-5">
+                        <h2 class="section-title">Course Overview</h2>
+                        <p class="section-subtitle">Master the art of monetization and advanced optimization</p>
+                    </div>
+                    <div class="content-section">
+                        <p class="lead">This comprehensive module provides a deep dive into two critical aspects of digital marketing: monetization through affiliate marketing and advanced website optimization through technical SEO. You'll learn how to generate revenue by promoting products and services while simultaneously improving your website's visibility and structure for search engines.</p>
+                        <p>Our hands-on approach focuses on real-world applications, giving you practical skills in affiliate marketing fundamentals, revenue models, technical SEO implementation, and website optimization. By the end of this module, you'll have the knowledge and tools to both monetize your content effectively and ensure your website performs at its peak in search engine rankings.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Objectives Section -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-center mb-5">
+                        <h2 class="section-title">What You'll Learn</h2>
+                        <p class="section-subtitle">Comprehensive skills for affiliate marketing and technical SEO mastery</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <h4 class="mb-3"><i class="fas fa-handshake text-primary me-2"></i>Affiliate Marketing Mastery</h4>
+                    <div class="learning-objective">
+                        <i class="fas fa-check-circle text-primary me-2"></i>
+                        How affiliate marketing works and how to join affiliate programs
+                    </div>
+                    <div class="learning-objective">
+                        <i class="fas fa-check-circle text-primary me-2"></i>
+                        Choosing the right affiliate products or networks
+                    </div>
+                    <div class="learning-objective">
+                        <i class="fas fa-check-circle text-primary me-2"></i>
+                        Creating high-converting affiliate content
+                    </div>
+                    <div class="learning-objective">
+                        <i class="fas fa-check-circle text-primary me-2"></i>
+                        Tracking affiliate links and conversions
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <h4 class="mb-3"><i class="fas fa-cogs text-primary me-2"></i>Technical SEO Excellence</h4>
+                    <div class="learning-objective">
+                        <i class="fas fa-check-circle text-primary me-2"></i>
+                        Understanding site speed, crawlability, and structured data
+                    </div>
+                    <div class="learning-objective">
+                        <i class="fas fa-check-circle text-primary me-2"></i>
+                        Implementing schema markup and fixing crawl errors
+                    </div>
+                    <div class="learning-objective">
+                        <i class="fas fa-check-circle text-primary me-2"></i>
+                        Optimizing for mobile-first indexing and Core Web Vitals
+                    </div>
+                    <div class="learning-objective">
+                        <i class="fas fa-check-circle text-primary me-2"></i>
+                        Using tools like Google Search Console and Screaming Frog
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Affiliate Marketing Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-center mb-5">
+                        <h2 class="section-title">
+                            <i class="fas fa-link text-primary me-3"></i>
+                            Affiliate Marketing Deep Dive
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="content-section">
+                        <h4 class="mb-3">What is Affiliate Marketing?</h4>
+                        <p>Affiliate marketing is a commission-based promotion strategy where you earn money by promoting other companies' products or services. When someone makes a purchase through your unique affiliate link, you receive a percentage of the sale.</p>
+                        
+                        <h5 class="mt-4 mb-3">Popular Affiliate Networks</h5>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <div class="card card-custom h-100">
+                                    <div class="card-body text-center">
+                                        <div class="icon-box mx-auto">
+                                            <i class="fab fa-amazon"></i>
+                                        </div>
+                                        <h6>Amazon Associates</h6>
+                                        <p class="small text-muted">World's largest affiliate program</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="card card-custom h-100">
+                                    <div class="card-body text-center">
+                                        <div class="icon-box mx-auto">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </div>
+                                        <h6>ShareASale</h6>
+                                        <p class="small text-muted">Diverse merchant network</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="card card-custom h-100">
+                                    <div class="card-body text-center">
+                                        <div class="icon-box mx-auto">
+                                            <i class="fas fa-mouse-pointer"></i>
+                                        </div>
+                                        <h6>ClickBank</h6>
+                                        <p class="small text-muted">Digital products focus</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 class="mt-4 mb-3">High-Converting Content Types</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-star text-warning me-2"></i><strong>Product Reviews:</strong> In-depth analysis of products with pros and cons</li>
+                            <li class="mb-2"><i class="fas fa-balance-scale text-info me-2"></i><strong>Comparisons:</strong> Side-by-side product or service comparisons</li>
+                            <li class="mb-2"><i class="fas fa-play-circle text-success me-2"></i><strong>Tutorials:</strong> How-to guides featuring affiliate products</li>
+                            <li class="mb-2"><i class="fas fa-list text-primary me-2"></i><strong>Best Of Lists:</strong> Curated lists of top products in a category</li>
+                        </ul>
+
+                        <h5 class="mt-4 mb-3">Tracking and Compliance</h5>
+                        <p>Always use UTM parameters for tracking and include proper nofollow tags on affiliate links. Transparency is key - always disclose affiliate relationships to your audience.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card card-custom">
+                        <div class="card-header bg-primary text-white">
+                            <h6 class="mb-0"><i class="fas fa-code me-2"></i>Sample Blog Post Structure</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="small">
+                                <p><strong>1. Hook Introduction</strong><br>
+                                <span class="text-muted">Engaging opening paragraph</span></p>
+                                
+                                <p><strong>2. Problem Statement</strong><br>
+                                <span class="text-muted">What issue does the product solve?</span></p>
+                                
+                                <p><strong>3. Product Overview</strong><br>
+                                <span class="text-muted">Key features and benefits</span></p>
+                                
+                                <p><strong>4. Personal Experience</strong><br>
+                                <span class="text-muted">Your honest review and testing</span></p>
+                                
+                                <p><strong>5. Pros and Cons</strong><br>
+                                <span class="text-muted">Balanced perspective</span></p>
+                                
+                                <p><strong>6. Call to Action</strong><br>
+                                <span class="text-muted">Clear affiliate link with disclosure</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical SEO Section -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-center mb-5">
+                        <h2 class="section-title">
+                            <i class="fas fa-search text-primary me-3"></i>
+                            Technical SEO Mastery
+                        </h2>
+                        <p class="section-subtitle">Structure beats content - optimize your website's foundation</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="content-section h-100">
+                        <h4 class="mb-3">Core Technical Elements</h4>
+                        <div class="mb-3">
+                            <h6><i class="fas fa-sitemap text-primary me-2"></i>Site Architecture</h6>
+                            <ul class="small">
+                                <li>XML sitemap setup and optimization</li>
+                                <li>Robots.txt configuration</li>
+                                <li>URL structure and hierarchy</li>
+                            </ul>
+                        </div>
+                        <div class="mb-3">
+                            <h6><i class="fas fa-tachometer-alt text-primary me-2"></i>Performance Optimization</h6>
+                            <ul class="small">
+                                <li>Site speed optimization techniques</li>
+                                <li>Core Web Vitals improvement</li>
+                                <li>Hosting and server considerations</li>
+                            </ul>
+                        </div>
+                        <div class="mb-3">
+                            <h6><i class="fas fa-code text-primary me-2"></i>Structured Data</h6>
+                            <ul class="small">
+                                <li>Schema.org markup implementation</li>
+                                <li>Rich snippets optimization</li>
+                                <li>JSON-LD vs. Microdata</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="content-section h-100">
+                        <h4 class="mb-3">Advanced Optimization</h4>
+                        <div class="mb-3">
+                            <h6><i class="fas fa-mobile-alt text-primary me-2"></i>Mobile-First Indexing</h6>
+                            <ul class="small">
+                                <li>Responsive design best practices</li>
+                                <li>Mobile usability optimization</li>
+                                <li>Touch-friendly interface design</li>
+                            </ul>
+                        </div>
+                        <div class="mb-3">
+                            <h6><i class="fas fa-tools text-primary me-2"></i>Error Resolution</h6>
+                            <ul class="small">
+                                <li>Canonical tag implementation</li>
+                                <li>Broken link identification and fixes</li>
+                                <li>Crawl budget optimization</li>
+                            </ul>
+                        </div>
+                        <div class="mb-3">
+                            <h6><i class="fas fa-chart-line text-primary me-2"></i>Monitoring & Analysis</h6>
+                            <ul class="small">
+                                <li>Search Console setup and monitoring</li>
+                                <li>Technical audit procedures</li>
+                                <li>Performance tracking metrics</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="content-section">
+                        <h5 class="mb-3">Essential SEO Tools</h5>
+                        <div class="d-flex flex-wrap">
+                            <span class="tool-badge">Google Search Console</span>
+                            <span class="tool-badge">PageSpeed Insights</span>
+                            <span class="tool-badge">Screaming Frog</span>
+                            <span class="tool-badge">GTmetrix</span>
+                            <span class="tool-badge">Schema Markup Validator</span>
+                            <span class="tool-badge">Mobile-Friendly Test</span>
+                            <span class="tool-badge">Lighthouse</span>
+                            <span class="tool-badge">Ahrefs Site Audit</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Materials Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-center mb-5">
+                        <h2 class="section-title">
+                            <i class="fas fa-folder-open text-primary me-3"></i>
+                            Course Materials
+                        </h2>
+                        <p class="section-subtitle">Comprehensive resources to support your learning journey</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <h5 class="mb-3">Downloadable Resources</h5>
+                    <div class="material-item">
+                        <div class="material-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">Technical SEO Checklist</h6>
+                            <p class="small text-muted mb-0">Complete audit checklist with 50+ optimization points</p>
+                        </div>
+                    </div>
+                    <div class="material-item">
+                        <div class="material-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">Affiliate Link Template</h6>
+                            <p class="small text-muted mb-0">Ready-to-use templates for affiliate content</p>
+                        </div>
+                    </div>
+                    <div class="material-item">
+                        <div class="material-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">Performance Tracking Spreadsheet</h6>
+                            <p class="small text-muted mb-0">Monitor your affiliate and SEO performance</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <h5 class="mb-3">Interactive Content</h5>
+                    <div class="material-item">
+                        <div class="material-icon">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">Video Demonstrations</h6>
+                            <p class="small text-muted mb-0">Step-by-step tool walkthroughs and implementations</p>
+                        </div>
+                    </div>
+                    <div class="material-item">
+                        <div class="material-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">Live Tool Tutorials</h6>
+                            <p class="small text-muted mb-0">Real-time demonstrations of SEO and affiliate tools</p>
+                        </div>
+                    </div>
+                    <div class="material-item">
+                        <div class="material-icon">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1">Browser Extensions Guide</h6>
+                            <p class="small text-muted mb-0">Essential Chrome extensions and plugin recommendations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Outcomes Section -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-center mb-5">
+                        <h2 class="section-title">After Completion, You Will Be Able To</h2>
+                        <p class="section-subtitle">Measurable outcomes and practical skills you'll gain</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="outcome-item">
+                        <i class="fas fa-rocket outcome-icon"></i>
+                        <div>
+                            <h6>Launch and monetize an affiliate-driven blog</h6>
+                            <p class="small text-muted mb-0">Create content that converts visitors into affiliate revenue</p>
+                        </div>
+                    </div>
+                    <div class="outcome-item">
+                        <i class="fas fa-bullseye outcome-icon"></i>
+                        <div>
+                            <h6>Choose profitable affiliate niches and track results</h6>
+                            <p class="small text-muted mb-0">Identify high-converting products and monitor performance</p>
+                        </div>
+                    </div>
+                    <div class="outcome-item">
+                        <i class="fas fa-cogs outcome-icon"></i>
+                        <div>
+                            <h6>Improve your website's structure and indexability</h6>
+                            <p class="small text-muted mb-0">Optimize technical elements for better search engine crawling</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="outcome-item">
+                        <i class="fas fa-wrench outcome-icon"></i>
+                        <div>
+                            <h6>Fix technical errors and improve SEO health scores</h6>
+                            <p class="small text-muted mb-0">Identify and resolve issues that impact search performance</p>
+                        </div>
+                    </div>
+                    <div class="outcome-item">
+                        <i class="fas fa-search-plus outcome-icon"></i>
+                        <div>
+                            <h6>Audit and optimize any site for long-term organic growth</h6>
+                            <p class="small text-muted mb-0">Perform comprehensive SEO audits and implement improvements</p>
+                        </div>
+                    </div>
+                    <div class="outcome-item">
+                        <i class="fas fa-chart-line outcome-icon"></i>
+                        <div>
+                            <h6>Scale your digital marketing efforts effectively</h6>
+                            <p class="small text-muted mb-0">Build sustainable systems for ongoing revenue and growth</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <button class="btn btn-primary-custom btn-lg">
+                        <i class="fas fa-graduation-cap me-2"></i>
+                        Start Your Advanced Strategies Journey
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
