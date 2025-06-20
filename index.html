@@ -1,973 +1,664 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
+    
+<!-- Mirrored from html-templates.evonicmedia.com/marketiverse1/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Feb 2025 09:21:42 GMT -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DGT Marketing - Digital Marketing Excellence</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header Styles */
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        header.scrolled {
-            background: rgba(102, 126, 234, 0.95);
-            padding: 0.5rem 0;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            text-decoration: none;
-            color: white;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #ffd700;
-        }
-
-        .cta-btn {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
-        }
-
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .mobile-menu span {
-            width: 25px;
-            height: 3px;
-            background: white;
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 120px 0 80px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="10" cy="60" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="40" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            opacity: 0.3;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 3rem;
-            animation: fadeInUp 1s ease 0.4s both;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat h3 {
-            font-size: 2.5rem;
-            color: #ffd700;
-        }
-
-        .stat p {
-            font-size: 0.9rem;
-            margin: 0;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 80px 0;
-            background: #f8f9fa;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .section-title p {
-            font-size: 1.1rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-align: center;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 2rem;
-            color: white;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .service-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* About Section */
-        .about {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: #333;
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .features {
-            list-style: none;
-            margin: 2rem 0;
-        }
-
-        .features li {
-            padding: 0.5rem 0;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .features li::before {
-            content: '✓';
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-
-        .about-image {
-            position: relative;
-        }
-
-        .about-image img {
-            width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        /* Pricing Section */
-        .pricing {
-            padding: 80px 0;
-            background: #f8f9fa;
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .pricing-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            text-align: center;
-            position: relative;
-            transition: transform 0.3s ease;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .pricing-card.featured {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            transform: scale(1.05);
-        }
-
-        .pricing-card.featured .cta-btn {
-            background: white;
-            color: #667eea;
-        }
-
-        .plan-name {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-
-        .plan-price {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        .plan-period {
-            color: #666;
-            margin-bottom: 2rem;
-        }
-
-        .pricing-card.featured .plan-period {
-            color: rgba(255,255,255,0.8);
-        }
-
-        .plan-features {
-            list-style: none;
-            margin: 2rem 0;
-            text-align: left;
-        }
-
-        .plan-features li {
-            padding: 0.5rem 0;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .plan-features li::before {
-            content: '✓';
-            color: #28a745;
-            font-weight: bold;
-        }
-
-        /* FAQ Section */
-        .faq {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            margin-bottom: 1rem;
-            border: 1px solid #e9ecef;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .faq-question {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background 0.3s ease;
-        }
-
-        .faq-question:hover {
-            background: #e9ecef;
-        }
-
-        .faq-question h3 {
-            font-size: 1.1rem;
-            margin: 0;
-        }
-
-        .faq-toggle {
-            font-size: 1.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .faq-answer {
-            padding: 0 1.5rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .faq-answer.active {
-            padding: 1.5rem;
-            max-height: 200px;
-        }
-
-        .faq-item.active .faq-toggle {
-            transform: rotate(45deg);
-        }
-
-        /* Footer */
-        footer {
-            background: #333;
-            color: white;
-            padding: 3rem 0 1rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            color: #ffd700;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-            line-height: 1.8;
-        }
-
-        .footer-section a:hover {
-            color: #ffd700;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .social-links a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 50%;
-            text-align: center;
-            line-height: 40px;
-            color: white;
-            text-decoration: none;
-            transition: transform 0.3s ease;
-        }
-
-        .social-links a:hover {
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #555;
-            padding-top: 1rem;
-            color: #999;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: rgba(102, 126, 234, 0.95);
-                flex-direction: column;
-                padding: 1rem;
-                gap: 1rem;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .mobile-menu {
-                display: flex;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-stats {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
-            }
-
-            .pricing-card.featured {
-                transform: none;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
-            }
-
-            .hero {
-                padding: 100px 0 60px;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .services,
-            .about,
-            .pricing,
-            .faq {
-                padding: 60px 0;
-            }
-        }
-    </style>
-</head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-Content-Type-Options" content="nosniff">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DGT Marketing</title>
+        <!-- favicon  -->
+        <link rel="shortcut icon" href="assets/images/fav-icon.png" type="image/x-icon">
+        <!-- faremwork of css -->
+        <link rel="stylesheet" href="assets/css/bootstrap-lib/bootstrap.min.css">
+        <!-- style sheet of css -->
+        <link rel="stylesheet" href="assets/css/style.css">
+        <!-- Responsive sheet of css -->
+        <link rel="stylesheet" href="assets/css/responsive.css">
+        <!-- fonts awsome icon link  -->
+        <link rel="stylesheet" href="assets/font-awesome-lib/icon/font-awesome.min.css">
+        <!-- slick-slider link css -->
+        <link rel="stylesheet" href="assets/css/slick.min.css">
+        <!-- animation of css -->
+        <link rel="stylesheet" href="assets/css/aos.css">
+    </head>
 <body>
-    <!-- Header -->
-    <header id="header">
-        <nav class="container">
-            <a href="#" class="logo">DGT Marketing</a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#faq">FAQ</a></li>
-            </ul>
-            <a href="#contact" class="cta-btn">Get Started</a>
-            <div class="mobile-menu" id="mobileMenu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Digital Marketing Excellence</h1>
-                <p>Master digital marketing with our comprehensive platform. Learn SEO, social media marketing, analytics, and more through interactive lessons and hands-on projects.</p>
-                <a href="#services" class="cta-btn">Explore Courses</a>
-                
-                <div class="hero-stats">
-                    <div class="stat">
-                        <h3>+34%</h3>
-                        <p>Visibility Boost</p>
+    <div class="site-wrapper">
+        <div id="ThreeSections-bg">
+         <!-- ======== 1.1. header section ======== -->
+        <header>
+            <nav class="container navbar navbar-expand-lg ">
+                <div class="container-fluid">
+                    <!-- site logo -->
+                    <a class="nav-logo p-0 " href="index.html"><img src="assets/images/logo.png" alt="logo"></a>
+                            <!-- navigation button  -->
+                    <button class="open-aside" onclick="if (!window.__cfRLUnblockHandlers) return false; open_aside()" type="button" title="Aside" data-cf-modified-4c83ae7896b8d94b2595b6ef-="">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <!-- navigation bar manu  -->
+                    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                        <ul
+                            class="navbar-nav d-flex justify-content-center align-items-center gap-lg-4 gap-md-2 gap-sm-2 gap-2 mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="index.html">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a class="nav-link" href="#">Academix<i
+                                        class="fa-sharp fa-solid fa-sort-down"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="module.html">Modules</a></li>
+                                    <li><a class="dropdown-item" href="pricing.html">Pricing</a></li>
+                                    <li><a class="dropdown-item" href="tasks.html">Tasks</a></li>
+                                    <li><a class="dropdown-item" href="contact.html">Contact</a></li>
+                                    <li><a class="dropdown-item" href="coming.html">Coming Soon</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="pricing.html">Calendar</a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="stat">
-                        <h3>11K+</h3>
-                        <p>Active Users</p>
+                    <button class="join-btn hover1" type="button">Get Started</button>
+                </div>
+            </nav>
+            <!-- aside slidebar-->
+            <aside>
+                <div id="mySidenav" class="right-sidbar">
+                    <div class="side-nav-logo d-flex justify-content-between align-items-center ps-2 pe-1 nav-logo">
+                        <figure class="navbar-brand"><a href="index.html"><img src="assets/images/logo_aside.png" alt="img"
+                            class=""></a></figure>
+                            <button class="fa-solid fa-xmark" onclick="if (!window.__cfRLUnblockHandlers) return false; close_aside()" title="Aside" data-cf-modified-4c83ae7896b8d94b2595b6ef-=""> </button>
                     </div>
-                    <div class="stat">
-                        <h3>1M+</h3>
-                        <p>Success Stories</p>
+                    <ul>
+                        <li class="nav-item">
+                            <a aria-current="page" class="active" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pricing.html">calendar</a>
+                        </li>
+                        <li class="nav-item">
+                            <div class="d-flex align-items-center justify-content-between " id="slid-btn">
+                                <button class="a-slid page-btn">Pages</button>
+                                <i class="fa-solid fa-caret-down pe-2"></i>
+                            </div>
+                            <ul id="slid-drop">
+                                <li><a href="blog_Detail.html">Blog Detail</a></li>
+                                <li><a href="our_Blog.html">Our Blog</a></li>
+                                <li><a href="testimonials.html">Testimonials</a></li>
+                                <li><a href="faq.html">FAQs</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="404.html">404</a></li>
+                                <li><a href="coming.html">Coming Soon</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </header>
+        <!-- ======== End of 1.1. header section ========  -->
+        <!-- ======== End of 1.2. hero section ========  -->
+        <section id="hero">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 mb-lg-0 mb-md-0 mb-4" data-aos="fade-up">
+                        <div class=" d-flex justify-content-center flex-column">
+                            <h1 class="text-lg-start text-md-start text-center pt-lg-5 pt-md-4 pt-0">Digital Marketing </h1>
+                        <div class="line d-flex align-items-lg-start justify-content-lg-start justify-content-md-center justify-content-center"><hr></div>
+                        <div class="d-flex  gap-lg-5 gap-md-4 gap-4">
+                            <div class="d-flex align-items-center justify-content-center flex-column">
+                                <h3>#1</h3>
+                                <p>Best in World</p>
+                            </div>
+                            <div><a href="#"><figure><img src="assets/images/index/winner.webp" alt="Winner"></figure></a></div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8" data-aos="zoom-in">
+                       <div class="position-relative">
+                       <div class="position-relative ms-lg-0 ms-md-0 ms-2">
+                        <div class="bg-circle"><img src="assets/images/bg/hero-bg.webp" alt="Circle"></div>
+                        <div class="girl-image"><img src="assets/images/index/hero_girl.webp" alt="Image"></div>
+                       </div>
+                       <div class="hero-content d-flex flex-column gap-lg-4 gap-md-3 gap-3">
+                        <div class="d-flex gap-2">
+                            <img src="assets/images/icon/thume.svg" alt="like">
+                            <div>
+                                <h4>4.8</h4>
+                                <p>Rating On Clutch</p>
+                            </div>
+                        </div>
+                        <div class="mobile-reponsive">
+                        <div class="p-0">
+                            <p class="m-0">Welcome to DGT MARKETING, the perfect place to master digital marketing! Our platform offers interactive lessons and hands-on projects to help you succeed. Learn SEO, social media marketing, analytics, ads, and more at your own pace and boost your digital marketing skills for a successful career!</p>
+                        </div>
+                        <div class="mt-2"><a href="about.html">Learn More <i class="fa-solid fa-angle-right"></i></a></div>
+                        </div>
+                       </div>
+                       </div>
                     </div>
                 </div>
             </div>
+        </section>
+        <!-- ======== End of 1.2. hero section ========  -->
+        <!-- ======== 1.3. Rating section ========  -->
+        <section id="rating">
+            <div class="container">
+               <div class="row">
+                <div class="col-lg-4 col-md-4 d-flex">
+                    <div class="d-flex align-items-center justify-content-center flex-column">
+                        <div class="d-flex"><h1>+</h1><h1>34</h1><h1>%</h1></div>
+                        <p>Boost your visibility by 34%.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 d-flex">
+                    <div class="d-flex align-items-center justify-content-center flex-column">
+                        <div class="d-flex"><h1>+</h1><h1>11</h1><h1>K</h1></div>
+                        <p>Acquire 11k+ users with our lessons.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 d-flex">
+                    <div class="d-flex align-items-center justify-content-center flex-column">
+                        <div class="d-flex"><h1>+</h1><h1>1</h1><h1>M</h1></div>
+                        <p>Get 1M+ reviews with our lessons.</p>
+                    </div>
+                </div>
+               </div>
+            </div>
+        </section>
+        <!-- ======== End of 1.3. Rating section ========  -->
         </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services fade-in" id="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Digital Marketing Courses</h2>
-                <p>Comprehensive training programs designed to elevate your digital marketing skills and advance your career</p>
-            </div>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🔍</div>
-                    <h3>Search Engine Optimization</h3>
-                    <p>Master the art of SEO to improve website visibility and drive organic traffic through proven strategies and techniques.</p>
+        <!-- ======== End of 1.4. Facility section ========  -->
+        <section id="facility">
+            <div class="container position-relative">
+                <div class="row">
+                    <div class="col-lg-7 col-md-7">
+                        <div class="facility-circle d-flex align-items-center justify-content-center">
+                            <figure>
+                                <img src="assets/images/bg/facility-circle.webp" alt="Background Circle">
+                                
+                            </figure>
+                            <h2 id="text-container">The best digital marketing learning platfom for you</h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-5">
+                       <div><p>Welcome to DGT Marketing, your premier destination for mastering digital marketing. Our platform provides interactive lessons and hands-on projects, allowing you to enhance your expertise in SEO, social media marketing, analytics, ads, and more. Learn at your own pace and elevate your digital marketing skills to advance your career.</p></div>
+                    </div>
                 </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">📱</div>
-                    <h3>Social Media Marketing</h3>
-                    <p>Learn to engage audiences and build brand presence across all major social media platforms effectively.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">📧</div>
-                    <h3>Email Marketing</h3>
-                    <p>Create compelling email campaigns that convert subscribers into customers and build lasting relationships.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">📊</div>
-                    <h3>Analytics & Reporting</h3>
-                    <p>Understand data-driven marketing decisions and learn to measure and optimize campaign performance.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">💰</div>
-                    <h3>PPC Advertising</h3>
-                    <p>Master paid advertising campaigns across Google Ads, Facebook Ads, and other major platforms.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">✍️</div>
-                    <h3>Content Marketing</h3>
-                    <p>Create valuable, engaging content that attracts and retains customers while driving profitable actions.</p>
+                <div class="row position-absolute">
+                    <div class="col-lg-4 col-md-4 d-flex justify-content-end" data-aos="flip-left">
+                       <div class="d-flex align-items-start text-start flex-column">
+                        <img src="assets/images/icon/Search.svg" alt="Search">
+                        <h4>Search Engine Optimization</h4>
+                       </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 d-flex justify-content-end" data-aos="flip-left">
+                       <div class="d-flex align-items-start text-start flex-column">
+                        <img src="assets/images/icon/Marketing.svg" alt="Marketing">
+                        <h4>Marketing & Advertisement</h4>
+                       </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 d-flex justify-content-end"  data-aos="flip-left">
+                       <div class="d-flex align-items-start text-start flex-column">
+                        <img src="assets/images/icon/Analysis.svg" alt="Analysis">
+                        <h4>Reporting & Analysis</h4>
+                       </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about fade-in" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Why Choose DGT Marketing?</h2>
-                    <p>We're the premier destination for digital marketing education, offering interactive lessons and hands-on projects that prepare you for real-world success.</p>
-                    <p>Our platform combines expert instruction with practical application, ensuring you gain both knowledge and experience in today's most important digital marketing skills.</p>
+        </section>
+        <!-- ======== End of 1.4. Facility section ========  -->
+        <!-- ========= 1.5. Case-Study section =========== -->
+        <section id="Case-Study">
+            <div class="container">
+              <h1>Get free courses</h1>
+              <p class="Case-Study-p">We offer free, expert-led digital marketing training designed for learners at all levels. Enhance your skills and advance your career at no cost.</p>
+              <div class="row d-flex justify-content-between"  data-aos="zoom-in-up">
+                  <div class="col-lg-3 col-md-3 p-query">
+                  <div class="main">
+                      <img src="assets/images/index/case-study-4.webp" alt="img">
+                    <div class="overlay" >
+                      <div class="content">
+                        <div class="d-flex flex-column justify-content-center align-items-center text-center">
+                         <h4>Content marketing</h4>
+                         <p>Create valuable content to attract and retain customers.</p>
+                         <div class="d-flex"><a href="portfolio.html" class="hover">Get Started</a></div>
+                        </div>
+                      </div>
+                   </div>
+                </div>
+                </div>
+                <div class="col-lg-3 col-md-3 p-query" >
+                    <div class="main">
+                        <img src="assets/images/index/case-study-4.webp" alt="img">
+                      <div class="overlay" >
+                        <div class="content">
+                          <div class="d-flex flex-column justify-content-center align-items-center text-center">
+                           <h4>Social media marketing</h4>
+                           <p>Engage audiences and promote brands on social platforms.</p>
+                           <div class="d-flex"><a href="portfolio.html" class="hover">Get Started</a></div>
+                          </div>
+                        </div>
+                     </div>
+                  </div>
+                  </div>
+                  <div class="col-lg-3 col-md-3 p-query p-width"  id="Case-Study-col">
+                    <div class="main">
+                        <img src="assets/images/index/case-study-1.webp" alt="img">
+                      <div class="overlay over-h" id="over">
+                        <div class="content">
+                          <div class="d-flex flex-column justify-content-center align-items-center text-center">
+                           <h4>Affiliate marketing</h4>
+                           <p>Earn commissions by promoting others' products or services.</p>
+                           <div class="d-flex"><a href="portfolio.html" class="hover">Get Started</a></div>
+                          </div>
+                        </div>
+                     </div>
+                  </div>
+                  </div>
+                  <div class="col-lg-3 col-md-3 p-query">
+                      <div class="main">
+                          <img src="assets/images/index/case-study-4.webp" alt="img">
+                        <div class="overlay" >
+                          <div class="content">
+                            <div class="d-flex flex-column justify-content-center align-items-center text-center">
+                             <h4>Email marketing</h4>
+                             <p>Craft effective email campaigns to drive conversions.</p>
+                             <div class="d-flex"><a href="portfolio.html" class="hover">Get Started</a></div>
+                            </div>
+                          </div>
+                       </div>
+                    </div>
+                    </div>
+              </div>
+            </div>
+        </section>
+        <!-- ========= End of 1.5. Case-Study section =========== -->
+        <!-- ========= 1.6. Optimization section =========== -->
+        <section id="Optimization">
+            <div class="big-h2 d-flex align-items-center justify-content-center"><h2>MARKETING</h2></div>
+            <div class="container">
+                <div class="row position-relative">
+                    <div class="col-lg-3 col-md-3 col-0">
+                        <h1>Search Engine Optimization</h1>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-12 d-flex">
+                        <div class="d-flex align-items-end"><figure><img src="assets/images/index/seo_girl.webp" alt="Image"></figure></div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-12 d-flex" data-aos="fade-up">
+                        <div>
+                            <p> Unlock the power of search engines to connect your brand with the right audience. Mastering SEO can drive organic growth and elevate your online presence.
+                            </p>
+                            <div class="d-flex"><a href="about.html" class="hover2">Get Started</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ========= End of 1.6. Optimization section =========== -->
+        <!-- ========= 1.7. Offer section =========== -->
+        <section id="Offer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6" data-aos="fade-down">
+                        <div><figure><img src="assets/images/index/Offer.webp" alt="Offer_Image"></figure></div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 d-flex" data-aos="fade-up">
+                        <div class="d-flex flex-column align-items-lg-start align-items-md-start align-items-sm-center align-items-center justify-content-center gap-lg-4 gap-md-3 gap-3">
+                            <h1>We also offer other useful knowledge.</h1>
+                            <p>Check out other types of digital marketing with our comprehensive courses on Pay-Per-Click (PPC) Advertising, Web Analytics & Conversion Optimization, Branding & Digital Strategy.</p>
+                            <div class="d-flex"><a href="services.html" class="hover2">Get Started</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row social d-flex justify-content-center gap-lg-0 gap-md-0 gap-3">
+                    <div class="col-lg-3 col-md-6 col-sm-12 d-flex justify-content-center">
+                       <div class="d-flex align-items-start text-start flex-column gap-lg-3 gap-md-3 gap-2">
+                       <div><img src="assets/images/icon/Social_1.svg" alt="Email"></div>
+                        <h5>Email Marketing</h5>
+                        <p>Take action now to harness email marketing, engage your audience, and boost your business success.</p>
+                        <div class="d-flex hover3"><a href="services.html">Get Started <i class="fa-solid fa-angle-right"></i></a></div>
+                       </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 d-flex justify-content-center">
+                       <div class="d-flex align-items-start text-start flex-column gap-lg-3 gap-md-3 gap-2">
+                        <div><img src="assets/images/icon/Social_2.svg" alt="Media"></div>
+                        <h5>Social Media</h5>
+                        <p>Dive into social media today and unlock endless growth opportunities in a digital world.</p>
+                        <div class="d-flex hover3"><a href="services.html">Get Started <i class="fa-solid fa-angle-right"></i></a></div>
+                       </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 d-flex justify-content-center">
+                       <div class="d-flex align-items-start text-start flex-column gap-lg-3 gap-md-3 gap-2">
+                        <div><img src="assets/images/icon/Social_3.svg" alt="Design"></div>
+                        <h5>Website Development</h5>
+                        <p>Explore how web development skills can enhance your productivity and streamline workflow.</p>
+                        <div class="d-flex hover3"><a href="services.html">Get Started <i class="fa-solid fa-angle-right"></i></a></div>
+                       </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 d-flex justify-content-center">
+                       <div class="d-flex align-items-start text-start flex-column gap-lg-3 gap-md-3 gap-2">
+                        <div><img src="assets/images/icon/Social_4.svg" alt="Marketing"></div>
+                        <h5>Digital Marketing</h5>
+                        <p>Gain valuable insights into branding and digital strategy to elevate your business and drive success.</p>
+                        <div class="d-flex hover3"><a href="services.html">Get Started <i class="fa-solid fa-angle-right"></i></a></div>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ========= End of 1.7. Offer section =========== -->
+        <!-- ========= 1.8. Experiences section =========== -->
+        <section id="Experiences">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6" data-aos="fade-down">
+                        <div>
+                            <h2>Crafting and delivering success for you.</h2>
+                            <p class="Exp-p">Our digital marketing platform offers expert-led courses designed to equip you with the latest skills and strategies. Join us to accelerate your growth and stay ahead in the ever-evolving digital landscape.</p>
+                            <div class="d-flex align-items-center justify-content-start">
+                                <div><span class="number">1</span></div>
+                                <div>
+                                    <h5>Quality Assurance</h5>
+                                    <p>We provide high-quality, practical content to help you excel in digital marketing and achieve real results.</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-start">
+                               <div> <span class="number">2</span></div>
+                                <div>
+                                    <h5>Certified Professionals</h5>
+                                    <p>Learn from certified professionals who bring expert knowledge to help you succeed in digital marketing.</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-start">
+                               <div> <span class="number">3</span></div>
+                                <div>
+                                    <h5>Real Experiences</h5>
+                                    <p>Learn from experienced pros who provide practical insights to drive your success in life.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center btn">
+                            <div class="d-flex"><a href="services.html" class="hover1">Get Started</a></div>
+                            <div class="d-flex hover3"><a href="blog_Detail.html">Learn More <i class="fa-solid fa-angle-right"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 d-flex" data-aos="fade-up">
+                        <div class="Exp-image d-flex align-items-center justify-content-center">
+                            <figure>
+                                <h1>Why Us</h1>
+                                <img src="assets/images/index/Experiences_girl.webp" alt="Experiences">
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ========= End of 1.8. Experiences section =========== -->
+        <!-- ========= 1.9. Plan section =========== -->
+        <section id="Plan">
+            <div class="container">
+                <h1>Pricing Plan</h1>
+                <p class="Plan-p">Master the art of pricing strategies with expert guidance to effectively position your products and maximize your business growth.</p>
+                <div class="row d-flex align-items-center gap-lg-0 gap-md-0 gap-4">
+                    <div class="col-lg-4 col-md-4" data-aos="fade-down">
+                        <div class="plan-Card d-flex flex-column gap-lg-4 gap-3">
+                            <div class="mt-0 d-flex align-items-center justify-content-center"><p >Special</p></div>
+                            <div class="d-flex flex-column gap-lg-3 gap-3">
+                                <div class="d-flex align-items-center justify-content-center"><h2>$350</h2><h5 class="pt-lg-2 pt-md-2 pt-1">/Month</h5></div>
+                                <div class="d-flex justify-content-center"><a href="pricing.html" class="hover4">Get Started</a></div>
+                            </div>
+                            <div class="d-flex flex-column pt-md-3 pt-3 gap-lg-3 gap-md-3 gap-2">
+                                <h6 class="pb-2 ">Details:</h6>
+                                <div class="d-flex gap-2"><i class="fa-solid fa-check"></i><p>Consulted by an expert</p></div>
+                                <div class="d-flex gap-2"><i class="fa-solid fa-check"></i><p>Provide the optimal treatment plan
+                                </p></div>
+                                <div class="d-flex gap-2"><i class="fa-solid fa-check"></i><p>In-house consultation services
+                                </p></div>
+                                <div class="d-flex gap-2"><i class="fa-solid fa-check"></i><p>Evaluation of physiotherapy
+                                </p></div>
+                                <div class="d-flex gap-2"><i class="fa-solid fa-check"></i><p>Consulted by an expert
+                                </p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4" data-aos="fade-up">
+                        <div class="plan-Card d-flex flex-column gap-lg-4 gap-3">
+                            <div class="mt-0 d-flex align-items-center justify-content-center"><p >Premium</p></div>
+                            <div class="d-flex flex-column gap-lg-3 gap-3">
+                                <div class="d-flex align-items-center justify-content-center"><h2>$350</h2><h5 class="pt-lg-2 pt-md-2 pt-1">/Month</h5></div>
+                                <div class="d-flex justify-content-center"><a href="pricing.html" class="hover5">Get Started</a></div>
+                            </div>
+                            <div class="d-flex flex-column pt-md-3 pt-3 gap-lg-3 gap-md-3 gap-2">
+                                <h6 class="pb-2 ">Details:</h6>
+                                <div class="d-flex gap-2"><i class="fa-solid fa-check"></i><p>Consulted by an expert</p></div>
+                                <div class="d-flex gap-2"><i class="fa-solid fa-check"></i><p>Provide the optimal treatment plan
+                                </p></div>
+                                <div class="d-flex gap-2"><i class="fa-solid fa-check"></i><p>In-house consultation services
+                                </p></div>
+                                <div class="d-flex gap-2"><i class="fa-solid fa-check"></i><p>Evaluation of physiotherapy
+                                </p></div>
+                                <div class="d-flex gap-2"><i class="fa-solid fa-check"></i><p>Consulted by an expert
+                                </p></div>
+                                <div class="d-flex gap-2"><i class="fa-solid fa-check"></i><p>In-house consultation services
+                                </p></div>
+                                <div class="d-flex gap-2"><i class="fa-solid fa-check"></i><p>Consulted by an expert
+                                </p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4" data-aos="fade-down">
+                        <div class="plan-Card d-flex flex-column gap-lg-4 gap-3">
+                            <div class="mt-0 d-flex align-items-center justify-content-center"><p >Special</p></div>
+                            <div class="d-flex flex-column gap-lg-3 gap-3">
+                                <div class="d-flex align-items-center justify-content-center"><h2>$350</h2><h5 class="pt-lg-2 pt-md-2 pt-1">/Month</h5></div>
+                                <div class="d-flex justify-content-center"><a href="pricing.html" class="hover4">Get Started</a></div>
+                            </div>
+                            <div class="d-flex flex-column pt-md-3 pt-3 gap-lg-3 gap-md-3 gap-2">
+                                <h6 class="pb-2 ">Details:</h6>
+                                <div class="d-flex gap-2"><i class="fa-solid fa-check"></i><p>Consulted by an expert</p></div>
+                                <div class="d-flex gap-2"><i class="fa-solid fa-check"></i><p>Provide the optimal treatment plan
+                                </p></div>
+                                <div class="d-flex gap-2"><i class="fa-solid fa-check"></i><p>In-house consultation services
+                                </p></div>
+                                <div class="d-flex gap-2"><i class="fa-solid fa-check"></i><p>Evaluation of physiotherapy
+                                </p></div>
+                                <div class="d-flex gap-2"><i class="fa-solid fa-check"></i><p>Consulted by an expert
+                                </p></div>
+                            </div>
+                        </div>
+                    </div>
                     
-                    <ul class="features">
-                        <li>Expert-led interactive courses</li>
-                        <li>Hands-on project experience</li>
-                        <li>Industry-recognized certifications</li>
-                        <li>24/7 learning support</li>
-                        <li>Real-world case studies</li>
-                        <li>Career advancement guidance</li>
-                    </ul>
-                    
-                    <a href="#pricing" class="cta-btn">Start Learning Today</a>
-                </div>
-                
-                <div class="about-image">
-                    <img src="/placeholder.svg?height=400&width=500" alt="Digital Marketing Team">
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="pricing fade-in" id="pricing">
-        <div class="container">
-            <div class="section-title">
-                <h2>Choose Your Learning Path</h2>
-                <p>Flexible pricing plans designed to fit your learning goals and budget</p>
-            </div>
-            
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="plan-name">Starter</div>
-                    <div class="plan-price">$99</div>
-                    <div class="plan-period">per month</div>
-                    <ul class="plan-features">
-                        <li>Access to basic courses</li>
-                        <li>Community support</li>
-                        <li>Basic analytics tools</li>
-                        <li>Email support</li>
-                        <li>Course completion certificates</li>
-                    </ul>
-                    <a href="#" class="cta-btn">Get Started</a>
+        </section>
+        <!-- ========= End of 1.9. Plan section =========== -->
+        <!-- ========= 1.10. Gallery section =========== -->
+        <section id="Gallery">
+            <div class="container">
+                <h1>Creating impact on every project</h1>
+            </div>    
+            <div id="Conatiner_append">
+                <div class="Gallery_Slider" data-aos="fade-down">
+                    <div class="G_S_Box1 position-relative">
+                        <div class="G_S_Content position-absolute">
+                            <h3>Company</h3>
+                            <p> </p>
+                        </div>
+                        <div class="over"></div>
+                        <div><img src="assets/images/index/gallery-1.webp" alt="Gallery"></div>
+                    </div> 
+                    <div class="G_S_Box1 position-relative">
+                        <div class="G_S_Content position-absolute">
+                            <h3> Product Design</h3>
+                            <p> </p>
+                        </div>
+                        <div class="over"></div>
+                        <div><img src="assets/images/index/gallery-2.webp" alt="Gallery"></div>
+                    </div> 
+                    <div class="G_S_Box1 position-relative">
+                        <div class="G_S_Content position-absolute">
+                            <h3>Creative Photography</h3>
+                            <p> </p>
+                        </div>
+                        <div class="over"></div>
+                        <div><img src="assets/images/index/gallery-3.webp" alt="Gallery"></div>
+                    </div> 
+                    <div class="G_S_Box1 position-relative">
+                        <div class="G_S_Content position-absolute">
+                            <h3>TECH</h3>
+                            <p> </p>
+                        </div>
+                        <div class="over"></div>
+                        <div><img src="assets/images/index/gallery-4.webp" alt="Gallery"></div>
+                    </div> 
+                    <div class="G_S_Box1 position-relative">
+                        <div class="G_S_Content position-absolute">
+                            <h3>Website Marketing</h3>
+                            <p> </p>
+                        </div>
+                        <div class="over"></div>
+                        <div><img src="assets/images/index/gallery-5.webp" alt="Gallery"></div>
+                    </div> 
+                    <div class="G_S_Box1 position-relative">
+                        <div class="G_S_Content position-absolute">
+                            <h3>Social media</h3>
+                            <p> </p>
+                        </div>
+                        <div class="over"></div>
+                        <div><img src="assets/images/index/gallery-6.webp" alt="Gallery"></div>
+                    </div> 
                 </div>
-                
-                <div class="pricing-card featured">
-                    <div class="plan-name">Professional</div>
-                    <div class="plan-price">$199</div>
-                    <div class="plan-period">per month</div>
-                    <ul class="plan-features">
-                        <li>All Starter features</li>
-                        <li>Advanced course library</li>
-                        <li>1-on-1 mentoring sessions</li>
-                        <li>Priority support</li>
-                        <li>Industry certifications</li>
-                        <li>Job placement assistance</li>
-                    </ul>
-                    <a href="#" class="cta-btn">Most Popular</a>
-                </div>
-                
-                <div class="pricing-card">
-                    <div class="plan-name">Enterprise</div>
-                    <div class="plan-price">$399</div>
-                    <div class="plan-period">per month</div>
-                    <ul class="plan-features">
-                        <li>All Professional features</li>
-                        <li>Custom learning paths</li>
-                        <li>Team collaboration tools</li>
-                        <li>Advanced analytics</li>
-                        <li>White-label solutions</li>
-                        <li>Dedicated account manager</li>
-                    </ul>
-                    <a href="#" class="cta-btn">Contact Sales</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq fade-in" id="faq">
-        <div class="container">
-            <div class="section-title">
-                <h2>Frequently Asked Questions</h2>
-                <p>Get answers to common questions about our digital marketing courses</p>
-            </div>
-            
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>How long does it take to complete a course?</h3>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Course duration varies depending on the complexity and your learning pace. Most courses can be completed in 4-8 weeks with 5-10 hours of study per week. You can learn at your own pace with lifetime access to course materials.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Do I need prior marketing experience?</h3>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>No prior experience is required! Our courses are designed for beginners and include foundational concepts. We also offer advanced courses for experienced marketers looking to expand their skills.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Are the certifications industry-recognized?</h3>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, our certifications are recognized by leading companies and industry organizations. Many of our graduates have successfully used these certifications to advance their careers or transition into digital marketing roles.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>What kind of support do you provide?</h3>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We offer comprehensive support including email assistance, community forums, live Q&A sessions, and for premium plans, 1-on-1 mentoring. Our support team is available 24/7 to help with any questions.</p>
-                    </div>
+                <div class="G_Color">
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>DGT Marketing</h3>
-                    <p>Your premier destination for digital marketing education. Master the skills that drive business success in the digital age.</p>
+        </section>
+        <!-- ========= End of 1.10. Gallery section =========== -->
+        <!-- ========= 1.13. Questions section =========== -->
+        <section id="Questions">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-6 col-md-6 d-flex" data-aos="fade-up">
+                  <div class="d-flex align-items-center justify-content-center">
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h5 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Ut neque augue interdum ad integer tempus convallis?
+                                </button>
+                            </h5>
+                            <div id="collapseOne" class="accordion-collapse collapse show"
+                                aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In vitae turpis massa sed elementum tempus egestas sed. Diam in arcu cursus euismod.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h5 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Dictum feugiat tincidunt nam commodo?
+                                </button>
+                            </h5>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In vitae turpis massa sed elementum tempus egestas sed. Diam in arcu cursus euismod.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h5 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree" aria-expanded="false"
+                                    aria-controls="collapseThree">
+                                    Scelerisque metus sem nostra pulvinar sagittis?
+                                </button>
+                            </h5>
+                            <div id="collapseThree" class="accordion-collapse collapse"
+                                aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In vitae turpis massa sed elementum tempus egestas sed. Diam in arcu cursus euismod.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h5 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFour" aria-expanded="false"
+                                    aria-controls="collapseFour">
+                                    Consectetur scelerisque lacus gravida proin dolor sem?
+                                </button>
+                            </h5>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In vitae turpis massa sed elementum tempus egestas sed. Diam in arcu cursus euismod.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
                 </div>
-                
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <p><a href="#services">Courses</a></p>
-                    <p><a href="#about">About Us</a></p>
-                    <p><a href="#pricing">Pricing</a></p>
-                    <p><a href="#faq">FAQ</a></p>
+                <div class="col-lg-6 col-md-6 d-flex justify-content-center" data-aos="fade-down">
+                <div class="position-relative d-flex align-items-center justify-content-center">
+                    <figure><img src="assets/images/index/faq.webp" alt="girl"></figure>
+                    <h1>FAQ</h1>
                 </div>
-                
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <p>Email: info@dgtmarketing.com</p>
-                    <p>Phone: (555) 123-4567</p>
-                    <p>Available 24/7</p>
+                </div>
+              </div>
+            </div>
+        </section>
+        <!-- ========= End of 1.13. Questions section =========== -->
+        <!-- ========= 1.16. footer section =========== -->
+        <footer>
+            <div class="container">
+                <div class="d-flex flex-column align-items-center justify-content-center">
+                    <div class="d-flex flex-column align-items-center justify-content-center gap-lg-5 gap-4 mb-lg-5 mb-4">
+                        
+                        <div class="d-flex gap-lg-4 gap-md-4 gap-3">
+                            <a href="#" title="facebook"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="#" title="instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" title="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                        <div class="d-flex flex-wrap justify-content-center gap-lg-4 gap-md-4 gap-3">
+                           <p>Full time</p><p>|</p>
+                           <p>24/7</p><p>|</p>
+                           <p>Working every Hour</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <p class="Copyright">Copyright © 2025 DGT Marketing. All Rights Reserved.</p>
                 </div>
             </div>
-            
-            <div class="social-links">
-                <a href="#" title="Facebook">📘</a>
-                <a href="#" title="Twitter">🐦</a>
-                <a href="#" title="LinkedIn">💼</a>
-                <a href="#" title="Instagram">📷</a>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 DGT Marketing. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
+        </footer>
+        <!-- ========= End of 1.16. footer section =========== -->
+    </div>
+   
 
-    <script>
-        // Mobile Menu Toggle
-        const mobileMenu = document.getElementById('mobileMenu');
-        const navLinks = document.getElementById('navLinks');
-
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Header Scroll Effect
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // FAQ Toggle
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const faqItem = question.parentElement;
-                const answer = faqItem.querySelector('.faq-answer');
-                
-                // Close other open FAQ items
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    if (item !== faqItem) {
-                        item.classList.remove('active');
-                        item.querySelector('.faq-answer').classList.remove('active');
-                    }
-                });
-                
-                // Toggle current FAQ item
-                faqItem.classList.toggle('active');
-                answer.classList.toggle('active');
-            });
-        });
-
-        // Intersection Observer for Animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Counter Animation for Hero Stats
-        function animateCounters() {
-            const counters = document.querySelectorAll('.stat h3');
-            counters.forEach(counter => {
-                const target = counter.textContent;
-                const numericValue = parseInt(target.replace(/[^\d]/g, ''));
-                const suffix = target.replace(/[\d]/g, '');
-                let current = 0;
-                const increment = numericValue / 50;
-                
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= numericValue) {
-                        counter.textContent = target;
-                        clearInterval(timer);
-                    } else {
-                        counter.textContent = Math.floor(current) + suffix;
-                    }
-                }, 50);
-            });
-        }
-
-        // Trigger counter animation when hero section is visible
-        const heroObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounters();
-                    heroObserver.unobserve(entry.target);
-                }
-            });
-        });
-
-        heroObserver.observe(document.querySelector('.hero-stats'));
-
-        // Add loading animation
-        window.addEventListener('load', () => {
-            document.body.style.opacity = '1';
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
+     <!-- bootstrap min javascript -->
+     <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/javascript-lib/bootstrap.min.js" type="4c83ae7896b8d94b2595b6ef-text/javascript"></script>
+     <!-- j Query -->
+     <script src="assets/js/jquery.js" type="4c83ae7896b8d94b2595b6ef-text/javascript"></script>
+     <!-- slick slider js -->
+     <script src="assets/js/slick.min.js" type="4c83ae7896b8d94b2595b6ef-text/javascript"></script>
+     <!-- main javascript -->
+     <script src="assets/js/custom.js" type="4c83ae7896b8d94b2595b6ef-text/javascript"></script>
+     <!-- animation from javascript -->
+     <script src="assets/js/aos.js" type="4c83ae7896b8d94b2595b6ef-text/javascript"></script>
+     <script type="4c83ae7896b8d94b2595b6ef-text/javascript">
+         AOS.init({
+             once: true,
+             duration: 1500,
+         });
     </script>
+<script src="../cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="4c83ae7896b8d94b2595b6ef-|49" defer></script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'918f58756f8273a8',t:'MTc0MDczNDQ5OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='../cdn-cgi/challenge-platform/h/b/scripts/jsd/b0e4a89976ce/maind41d.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"918f58756f8273a8","version":"2025.1.0","r":1,"serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"afef85246d6f4aa98a1a0a5c34b94c75","b":1}' crossorigin="anonymous"></script>
 </body>
+
+<!-- Mirrored from html-templates.evonicmedia.com/marketiverse1/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Feb 2025 09:22:03 GMT -->
 </html>

@@ -1,0 +1,62 @@
+                <div class="col-lg-3 col-md-3 p-query p-width"  id="Case-Study-col">
+                    <div class="main">
+                        <img src="assets/images/index/case-study-1.webp" alt="img">
+                      <div class="overlay over-h" id="over">
+                        <div class="content">
+                          <div class="d-flex flex-column justify-content-center align-items-center text-center">
+                           <h4>VR Management</h4>
+                           <p>Lorem ipsum dolor sit amet consectetur.</p>
+                           <div class="d-flex"><a href="portfolio.html" class="hover">Get Started</a></div>
+                          </div>
+                        </div>
+                     </div>
+                  </div>
+                  </div>
+
+
+
+
+                <div class="col-lg-3 col-md-3 p-query">
+                  <div class="main">
+                      <img src="assets/images/index/case-study-4.webp" alt="img">
+                    <div class="overlay" >
+                      <div class="content">
+                        <div class="d-flex flex-column justify-content-center align-items-center text-center">
+                         <h4>Strategy Maker</h4>
+                         <p>Lorem ipsum dolor sit amet consectetur.</p>
+                         <div class="d-flex"><a href="portfolio.html" class="hover">Get Started</a></div>
+                        </div>
+                      </div>
+                   </div>
+                </div>
+                </div>
+
+
+
+
+                1. **Search Engine Optimization (SEO):** Optimize websites to improve search engine rankings.
+
+2. **Pay-Per-Click (PPC) Advertising:** Run paid ads to drive targeted website traffic.
+
+3. **Social Media Marketing:** Engage audiences and promote brands on social platforms.
+
+4. **Content Marketing:** Create valuable content to attract and retain customers.
+
+5. **Email Marketing:** Craft effective email campaigns to drive conversions.
+
+6. **Web Analytics and Conversion Optimization:** Analyze website data to increase conversions.
+
+7. **Branding and Digital Strategy:** Build a strong brand and digital marketing strategy.
+
+
+
+                        ## 📊 Comparison: On-Site vs Off-Site SEO <br>
+                        
+                        |               |                     | Off-Site SEO                      | <br>
+                        |------------------------|----------------------------------|-----------------------------------| <br>
+                        | **Focus**              | Your website’s content & setup  | External signals & authority      | <br>
+                        | **Control**            | Full control                    | Limited control                   | <br>
+                        | **Main Goal**          | Improve crawlability & relevance| Improve trust & reputation        |<br>
+                        | **Key Tactics**        | Keywords, structure, UX         | Backlinks, social shares, PR      |<br>
+                        | **Impact Speed**       | Often faster                    | Takes longer to build             |<br>
+                        | **Best For**           | Foundational SEO setup          | Boosting domain authority         | <br>

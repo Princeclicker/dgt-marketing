@@ -1,615 +1,241 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
+    
+<!-- Mirrored from html-templates.evonicmedia.com/marketiverse1/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Feb 2025 09:22:40 GMT -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Digital Marketing Agency</title>
-    
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary-color: #0D6EFD;
-            --accent-color: #F8C146;
-            --text-color: #1F1F1F;
-            --bg-white: #FFFFFF;
-            --bg-light: #F5F7FA;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-color);
-            background-color: var(--bg-white);
-            line-height: 1.6;
-        }
-
-        .section-bg {
-            background-color: var(--bg-light);
-        }
-
-        .hero-section {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #0B5ED7 100%);
-            color: white;
-            padding: 80px 0 60px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            font-weight: 400;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .contact-section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            color: var(--primary-color);
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        .form-floating > .form-control {
-            border: 2px solid #E9ECEF;
-            border-radius: 12px;
-            padding: 1rem 0.75rem;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-floating > .form-control:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
-        }
-
-        .form-floating > label {
-            color: #6C757D;
-            font-weight: 500;
-        }
-
-        .form-control:focus + label {
-            color: var(--primary-color);
-        }
-
-        .btn-primary-custom {
-            background-color: var(--primary-color);
-            border: none;
-            border-radius: 12px;
-            padding: 15px 40px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
-        }
-
-        .btn-primary-custom:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(248, 193, 70, 0.4);
-        }
-
-        .contact-info-card {
-            background: var(--bg-white);
-            border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            height: 100%;
-            border: 1px solid #E9ECEF;
-            transition: transform 0.3s ease;
-        }
-
-        .contact-info-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .contact-info-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 2rem;
-            padding: 1rem;
-            background: var(--bg-light);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .contact-info-item:hover {
-            background: rgba(13, 110, 253, 0.05);
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            flex-shrink: 0;
-        }
-
-        .contact-icon i {
-            color: white;
-            font-size: 1.2rem;
-        }
-
-        .contact-details h6 {
-            color: var(--primary-color);
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-
-        .contact-details p {
-            margin: 0;
-            color: var(--text-color);
-            font-weight: 500;
-        }
-
-        .map-placeholder {
-            background: var(--bg-light);
-            border-radius: 15px;
-            height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px dashed #DEE2E6;
-            margin-top: 2rem;
-        }
-
-        .map-placeholder i {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .footer-section {
-            background: var(--text-color);
-            color: white;
-            padding: 60px 0 40px;
-        }
-
-        .footer-title {
-            color: var(--accent-color);
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .social-link {
-            width: 50px;
-            height: 50px;
-            background: var(--primary-color);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            background: var(--accent-color);
-            transform: translateY(-3px);
-            color: white;
-        }
-
-        .footer-link {
-            color: #CCC;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-link:hover {
-            color: var(--accent-color);
-        }
-
-        .success-alert {
-            display: none;
-            background: linear-gradient(135deg, #28a745, #20c997);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            padding: 1rem 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .contact-info-card {
-                margin-top: 2rem;
-            }
-        }
-    </style>
-</head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="X-Content-Type-Options" content="nosniff">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Marketi-verse Marketing Digital Partner</title>
+        <!-- favicon  -->
+        <link rel="shortcut icon" href="assets/images/fav-icon.png" type="image/x-icon">
+        <!-- faremwork of css -->
+        <link rel="stylesheet" href="assets/css/bootstrap-lib/bootstrap.min.css">
+        <!-- style sheet of css -->
+        <link rel="stylesheet" href="assets/css/style.css">
+        <!-- Responsive sheet of css -->
+        <link rel="stylesheet" href="assets/css/responsive.css">
+        <!-- fonts awsome icon link  -->
+        <link rel="stylesheet" href="assets/font-awesome-lib/icon/font-awesome.min.css">
+        <!-- slick-slider link css -->
+        <link rel="stylesheet" href="assets/css/slick.min.css">
+        <!-- animation of css -->
+        <link rel="stylesheet" href="assets/css/aos.css">
+    </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container">
-            <div class="row justify-content-center text-center">
-                <div class="col-lg-8 hero-content">
-                    <h1 class="hero-title">Contact Us</h1>
-                    <p class="hero-subtitle">Let us know how we can help you. We'll respond within 24 hours.</p>
+    <div class="site-wrapper">
+         <!-- ======== 1.1. header section ======== -->
+         <header>
+            <nav class="container navbar navbar-expand-lg ">
+                <div class="container-fluid">
+                    <!-- site logo -->
+                    <a class="nav-logo p-0 " href="index.html"><figure><img src="assets/images/logo.png" alt="logo"></figure></a>
+                            <!-- navigation button  -->
+                    <button class="open-aside" onclick="if (!window.__cfRLUnblockHandlers) return false; open_aside()" type="button" title="Aside" data-cf-modified-9834e4097eb194f38097008f-="">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <!-- navigation bar manu  -->
+                    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                        <ul
+                            class="navbar-nav d-flex justify-content-center align-items-center gap-lg-4 gap-md-2 gap-sm-2 gap-2 mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a class="nav-link" href="#">Academix<i
+                                        class="fa-sharp fa-solid fa-sort-down"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="module.html">Modules</a></li>
+                                    <li><a class="dropdown-item" href="pricing.html">Pricing</a></li>
+                                    <li><a class="dropdown-item" href="tasks.html">Tasks</a></li>
+                                    <li><a class="dropdown-item" href="contact.html">Contact</a></li>
+                                    <li><a class="dropdown-item" href="coming.html">Coming Soon</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="pricing.html">Calendar</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="join-btn hover1" type="button">Get Started</button>
                 </div>
-            </div>
+            </nav>
+            <!--===== aside navigation slidebar =====-->
+            <aside>
+                <div id="mySidenav" class="right-sidbar">
+                    <div class="side-nav-logo d-flex justify-content-between align-items-center ps-2 pe-1 nav-logo">
+                        <figure class="navbar-brand"><a href="index.html"><img src="assets/images/logo_aside.png" alt="img"
+                            class=""></a></figure>
+                            <button class="fa-solid fa-xmark" onclick="if (!window.__cfRLUnblockHandlers) return false; close_aside()" title="Aside" data-cf-modified-9834e4097eb194f38097008f-=""> </button>
+                    </div>
+                    <ul>
+                        <li class="nav-item">
+                            <a aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pricing.html">Calendar</a>
+                        </li>
+                        <li class="nav-item">
+                            <div class="d-flex align-items-center justify-content-between " id="slid-btn">
+                                <button class="a-slid page-btn">Pages</button>
+                                <i class="fa-solid fa-caret-down pe-2"></i>
+                            </div>
+                            <ul id="slid-drop">
+                                <li><a href="blog_Detail.html">Blog Detail</a></li>
+                                <li><a href="our_Blog.html">Our Blog</a></li>
+                                <li><a href="team.html">Team</a></li>
+                                <li><a href="testimonials.html">Testimonials</a></li>
+                                <li><a href="faq.html">FAQs</a></li>
+                                <li><a href="contact.html" class="active">Contact</a></li>
+                                <li><a href="404.html">404</a></li>
+                                <li><a href="coming.html">Coming Soon</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </header>
+        <!-- ======== End of 1.1. header section ========  -->
+        <!-- ======== 2.1. about_hero section ========  -->
+        <div id="about_hero">
+            <h2>Contact Us</h2>
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                  <li class="breadcrumb-item" aria-current="page">Contact Us</li>
+                </ol>
+            </nav>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact-section">
-        <div class="container">
-            <div class="row">
-                <!-- Contact Form -->
-                <div class="col-lg-8">
-                    <div class="contact-form-wrapper">
-                        <!-- Success Alert -->
-                        <div class="alert success-alert" id="successAlert">
-                            <i class="fas fa-check-circle me-2"></i>
-                            Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.
+        <!-- ======== End of 2.1. about_hero section ========  -->
+        <!-- ======== End of 4.1. Leave_Us section ========  -->
+        <section id="Leave_Us">
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100939.99641085565!2d-122.52000113088664!3d37.75780703754261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2s!4v1708079522889!5m2!1sen!2s" width="600" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+               </div>
+               <div class="d-flex align-items-center justify-content-center">
+                <div class="Leave_form  position-absolute">
+                    <h2 class="mb-lg-5 mb-md-4 mb-3">Leave Us A Message?</h2>
+                 <form id="Subscribe-massage">  
+                     <div class="d-flex flex-column gap-4">
+                        <div class="d-flex gap-lg-3 gap-md-3 gap-4 flex-lg-row flex-md-row flex-column">
+                         <input type="text" name="name" autocomplete="off" id="name" placeholder="Your Name" required>
+                         <input type="email" name="email" autocomplete="off" id="email" placeholder="Email Address" required>
                         </div>
-
-                        <form id="contactForm" novalidate>
-                            <div class="row">
-                                <div class="col-md-6 mb-4">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Full Name" required>
-                                        <label for="fullName">Full Name *</label>
-                                        <div class="invalid-feedback">
-                                            Please provide your full name.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" required>
-                                        <label for="email">Email Address *</label>
-                                        <div class="invalid-feedback">
-                                            Please provide a valid email address.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="row">
-                                <div class="col-md-6 mb-4">
-                                    <div class="form-floating">
-                                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone Number">
-                                        <label for="phone">Phone Number</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <div class="form-floating">
-                                        <select class="form-control" id="subject" name="subject" required>
-                                            <option value="">Choose a subject</option>
-                                            <option value="general">General Inquiry</option>
-                                            <option value="services">Our Services</option>
-                                            <option value="quote">Request Quote</option>
-                                            <option value="support">Technical Support</option>
-                                            <option value="partnership">Partnership</option>
-                                        </select>
-                                        <label for="subject">Subject *</label>
-                                        <div class="invalid-feedback">
-                                            Please select a subject.
-                                        </div>
-                                    </div>
+                         <div class="d-flex flex-column gap-lg-4 gap-md-4 gap-3">
+                             <input type="number" name="number" id="number" placeholder="Phone Number" required>
+                         <textarea class="col-md-11 col-12" name="massage" id="massage" cols="30" rows="8" placeholder="Write here message"></textarea>
+                         </div>
+                     </div>
+                     <div class="d-flex justify-content-start mt-4">
+                         <button class="hover1" type="submit">Submit</button>
+                     </div>
+                 </form>
+                </div>
+                <div id="Succes-box"></div> 
+               </div>
+         </section>
+         <!-- ======== End of 4.1. Leave_Us section ========  -->
+          <!-- ========= End of 4.2. Services section =========== -->
+         <section id="Some_Question">
+            <div class="container">
+                <div class="row d-flex gap-lg-0 gap-md-0 gap-4">
+                    <div class="col-lg-6 col-md-6"  data-aos="fade-up">
+                        <h2>Do You Have Some Questions?</h2>
+                        <p class="pt-2 pb-lg-5 pb-md-5 pb-4 pe-lg-5 pe-md-3 pe-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat minima officia accusantium mollitia reiciendis tempora animi tenetur totam facilis commodi, id expedita vero, beatae iusto natus quod culpa architecto velit.</p>
+                        <div class="d-flex flex-column gap-lg-4 gap-md-3 gap-3">
+                            <div class="d-flex gap-lg-4 gap-md-4 gap-3 align-items-center justify-content-start">
+                                <div><i class="fa-solid fa-house"></i></div>
+                                <div class="d-flex flex-column gap-lg-1 gap-md-1 gap-2">
+                                    <h5>Address</h5>
+                                    <p>Plaza X, XY Floor, XYZ Street</p>
                                 </div>
                             </div>
-                            
-                            <div class="mb-4">
-                                <div class="form-floating">
-                                    <textarea class="form-control" id="message" name="message" placeholder="Your Message" style="height: 150px" required></textarea>
-                                    <label for="message">Your Message *</label>
-                                    <div class="invalid-feedback">
-                                        Please provide your message.
-                                    </div>
+                            <div class="d-flex gap-lg-4 gap-md-4 gap-3 align-items-center justify-content-start">
+                                <div><i class="fa-solid fa-envelope"></i></div>
+                                <div class="d-flex flex-column gap-lg-1 gap-md-1 gap-2">
+                                    <h5>Email Address</h5>
+                                    <p><a href="https://html-templates.evonicmedia.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="265f49535448474b4366434b474f4a0845494b">[email&#160;protected]</a></p>
                                 </div>
                             </div>
-                            
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-primary-custom">
-                                    <i class="fas fa-paper-plane me-2"></i>
-                                    Send Message
-                                </button>
+                            <div class="d-flex gap-lg-4 gap-md-4 gap-3 align-items-center  justify-content-start">
+                               <div> <i class="fa-solid fa-phone"></i></div>
+                                <div class="d-flex flex-column gap-lg-1 gap-md-1 gap-2">
+                                    <h5>Phone Number</h5>
+                                    <p>123-456-7890</p>
+                                </div>
                             </div>
-                        </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6" data-aos="fade-down">
+                        <figure><img src="assets/images/contact/some_question.webp" alt="Image"></figure>
                     </div>
                 </div>
-
-                <!-- Contact Info -->
-                <div class="col-lg-4">
-                    <div class="contact-info-card">
-                        <h3 class="mb-4" style="color: var(--primary-color); font-weight: 600;">Get In Touch</h3>
+            </div>
+         </section>
+         <!-- ========= End of 4.2. Services section =========== -->
+         <!-- ========= 1.15. Subscribe section =========== -->
+         <div id="Subscribe" class="Subscribe_contact">
+            <div class="container">
+                <div class="d-flex flex-column justify-content-center text-center" data-aos="zoom-in">
+                    <h3 class="text-center">Subscribe our newsletter to get best advice on Marketing</h3>
+                    <div class="position-relative">
+                     <form id="Subscribe-massage2">
+                        <input type="email" name="email" id="Email" autocomplete="off" placeholder="Enter Your Email" required>
+                        <button><img src="assets/images/icon/telegram.svg" alt="Submit"></button>
+                     </form>
+                     <div id="Succes-box2"></div> 
+                    </div>
+                </div>
+            </div>
+         </div>
+         <!-- ========= End of 1.15. Subscribe section =========== -->
+         <!-- ========= 1.16. footer section =========== -->
+         <footer>
+            <div class="container">
+                <div class="d-flex flex-column align-items-center justify-content-center">
+                    <div class="d-flex flex-column align-items-center justify-content-center gap-lg-5 gap-4 mb-lg-5 mb-4">
                         
-                        <div class="contact-info-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h6>Address</h6>
-                                <p>Kigali, Rwanda</p>
-                            </div>
+                        <div class="d-flex gap-lg-4 gap-md-4 gap-3">
+                            <a href="#" title="facebook"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="#" title="instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" title="linkedin"><i class="fa-brands fa-linkedin"></i></a>
                         </div>
-
-                        <div class="contact-info-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h6>Phone</h6>
-                                <p>+250 xxx xxx xxx</p>
-                            </div>
-                        </div>
-
-                        <div class="contact-info-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h6>Email</h6>
-                                <p>yourname@example.com</p>
-                            </div>
-                        </div>
-
-                        <div class="contact-info-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h6>Business Hours</h6>
-                                <p>Mon–Fri, 9AM–5PM</p>
-                            </div>
-                        </div>
-
-                        <!-- Map Placeholder -->
-                        <div class="map-placeholder text-center">
-                            <div>
-                                <i class="fas fa-map"></i>
-                                <p class="mb-0 mt-2" style="color: var(--primary-color); font-weight: 500;">
-                                    Interactive Map<br>
-                                    <small style="color: #6C757D;">Google Maps integration ready</small>
-                                </p>
-                            </div>
+                        <div class="d-flex flex-wrap justify-content-center gap-lg-4 gap-md-4 gap-3">
+                           <p>Full time</p><p>|</p>
+                           <p>24/7</p><p>|</p>
+                           <p>Working every Hour</p>
                         </div>
                     </div>
+                    <hr>
+                    <p class="Copyright">Copyright © 2025 DGT Marketing. All Rights Reserved.</p>
                 </div>
             </div>
-        </div>
-    </section>
+         </footer>
+        <!-- ========= End of 1.16. footer section =========== -->
+    </div>
 
-    <!-- Footer Section -->
-    <footer class="footer-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <h4 class="footer-title">Quick Response</h4>
-                    <p style="color: #CCC; margin-bottom: 1rem;">
-                        We respond within 24–48 hours to all inquiries. For urgent matters, please call us directly.
-                    </p>
-                    <div class="social-links">
-                        <a href="#" class="social-link" title="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-link" title="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-link" title="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="social-link" title="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 mb-4">
-                    <h4 class="footer-title">Support Links</h4>
-                    <a href="#" class="footer-link">
-                        <i class="fas fa-question-circle me-2"></i>
-                        Frequently Asked Questions
-                    </a>
-                    <a href="#" class="footer-link">
-                        <i class="fas fa-headset me-2"></i>
-                        Technical Support
-                    </a>
-                    <a href="#" class="footer-link">
-                        <i class="fas fa-file-alt me-2"></i>
-                        Documentation
-                    </a>
-                    <a href="#" class="footer-link">
-                        <i class="fas fa-comments me-2"></i>
-                        Live Chat Support
-                    </a>
-                </div>
-                
-                <div class="col-lg-4 mb-4">
-                    <h4 class="footer-title">Office Hours</h4>
-                    <div style="color: #CCC;">
-                        <p><strong>Monday - Friday:</strong> 9:00 AM - 5:00 PM</p>
-                        <p><strong>Saturday:</strong> 10:00 AM - 2:00 PM</p>
-                        <p><strong>Sunday:</strong> Closed</p>
-                        <p style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #444;">
-                            <i class="fas fa-info-circle me-2"></i>
-                            Emergency support available 24/7
-                        </p>
-                    </div>
-                </div>
-            </div>
-            
-            <hr style="border-color: #444; margin: 2rem 0 1rem;">
-            <div class="text-center" style="color: #999;">
-                <p>&copy; 2024 Digital Marketing Agency. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <script>
-        // Form validation and submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const form = this;
-            const successAlert = document.getElementById('successAlert');
-            
-            // Bootstrap validation
-            if (!form.checkValidity()) {
-                e.stopPropagation();
-                form.classList.add('was-validated');
-                return;
-            }
-            
-            // Simulate form submission (replace with actual form handler)
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            
-            // Show loading state
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
-            submitBtn.disabled = true;
-            
-            // Simulate API call
-            setTimeout(() => {
-                // Show success message
-                successAlert.style.display = 'block';
-                successAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                
-                // Reset form
-                form.reset();
-                form.classList.remove('was-validated');
-                
-                // Reset button
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-                
-                // Hide success message after 5 seconds
-                setTimeout(() => {
-                    successAlert.style.display = 'none';
-                }, 5000);
-                
-            }, 2000);
+    <!-- bootstrap min javascript -->
+    <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/javascript-lib/bootstrap.min.js" type="9834e4097eb194f38097008f-text/javascript"></script>
+    <!-- j Query -->
+    <script src="assets/js/jquery.js" type="9834e4097eb194f38097008f-text/javascript"></script>
+    <!-- slick slider js -->
+    <script src="assets/js/slick.min.js" type="9834e4097eb194f38097008f-text/javascript"></script>
+    <!-- main javascript -->
+    <script src="assets/js/custom.js" type="9834e4097eb194f38097008f-text/javascript"></script>
+    <!-- animation from javascript -->
+    <script src="assets/js/aos.js" type="9834e4097eb194f38097008f-text/javascript"></script>
+    <script type="9834e4097eb194f38097008f-text/javascript">
+        AOS.init({
+            once: true,
+            duration: 1500,
         });
-
-        // Real-time validation feedback
-        const inputs = document.querySelectorAll('.form-control');
-        inputs.forEach(input => {
-            input.addEventListener('blur', function() {
-                if (this.checkValidity()) {
-                    this.classList.remove('is-invalid');
-                    this.classList.add('is-valid');
-                } else {
-                    this.classList.remove('is-valid');
-                    this.classList.add('is-invalid');
-                }
-            });
-            
-            input.addEventListener('input', function() {
-                if (this.classList.contains('is-invalid') && this.checkValidity()) {
-                    this.classList.remove('is-invalid');
-                    this.classList.add('is-valid');
-                }
-            });
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe contact info items
-        document.querySelectorAll('.contact-info-item').forEach(item => {
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(20px)';
-            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(item);
-        });
-    </script>
+   </script>
+<script src="../cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="9834e4097eb194f38097008f-|49" defer></script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'918f58b228eb73a8',t:'MTc0MDczNDUwOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='../cdn-cgi/challenge-platform/h/b/scripts/jsd/b0e4a89976ce/maind41d.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"918f58b228eb73a8","version":"2025.1.0","r":1,"serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"afef85246d6f4aa98a1a0a5c34b94c75","b":1}' crossorigin="anonymous"></script>
 </body>
+
+<!-- Mirrored from html-templates.evonicmedia.com/marketiverse1/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Feb 2025 09:22:41 GMT -->
 </html>
